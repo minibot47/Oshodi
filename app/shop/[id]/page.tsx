@@ -1,6 +1,6 @@
 // app/shop/[id]/page.jsx
 "use client";
-import { useState } from "react";
+import { use, useState } from "react";
 import { useCart } from "../../components/cartcontext";
 import Link from "next/link";
 import { products } from "../../components/productgrid";
@@ -8,11 +8,11 @@ import Nav from "../../components/nav";
 import Footer from "../../components/footer";
 
 type ProductDetailProps = {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 };
 
 export default function ProductDetail({ params }: ProductDetailProps) {
-  const { id } = params;
+  const { id } = use(params);
   const product = products.find((p) => p.id === Number(id));
   const [qty, setQty] = useState(1);
   const { addToCart } = useCart();

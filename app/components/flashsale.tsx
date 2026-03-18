@@ -39,10 +39,10 @@ export default function FlashSaleTimer() {
       {blocks.map(({ label, value }) => (
         <div
           key={label}
-          className="w-[120px] h-[120px] bg-gray-600 rounded-[16px] flex flex-col items-center justify-center gap-1"
+          className="w-[70px] h-[70px] lg:w-[120px] lg:h-[120px] bg-gray-600 rounded-[16px] flex flex-col items-center justify-center gap-1"
         >
-          <h2 className="text-6xl font-semibold tabular-nums">{pad(value)}</h2>
-          <h2 className="text-sm">{label}</h2>
+          <h2 className="text-2xl lg:text-6xl font-semibold tabular-nums">{pad(value)}</h2>
+          <h2 className="text-sm lg:text-sm">{label}</h2>
         </div>
       ))}
     </div>

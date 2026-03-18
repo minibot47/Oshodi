@@ -72,9 +72,9 @@ export default function Home() {
               <h3>Spring to Autumn.</h3>
               <h2 className="flex gap-3 items-center bg-black text-white px-6 py-2 rounded-full mt-4">See Product <img src="/icons/whitearrow.png" alt="Arrow" className="h-2 w-8"/> </h2>
             </div>
-            <div className="w-full h-[40%] bg-black rounded-[16px] flex flex-col items-start p-5 text-white justify-between">
+            <div className="w-full h-[40%] bg-black rounded-[16px] flex flex-col items-start p-5 text-white justify-between gap-3 lg:gap-0">
               <h2 className="py-2 px-5 border-white border-[1px] text-white rounded-full">Special Offers</h2>
-              <h2 className="text-3xl">Get 20% off with the code OSHODI20</h2>
+              <h2 className="text-2xl">Get 20% off with the code OSHODI20</h2>
             </div>
           </div>
           <div className="w-full lg:w-[38%] bg-blue-500 rounded-[16px] flex flex-col items-start justify-end p-5 text-white">
@@ -88,7 +88,7 @@ export default function Home() {
       {/* NEW ARRIVALS */}
       <div className="mb-20">
         <h1 className="mb-5 text-2xl text-gray-500">New Arrivals</h1>
-        <div className="flex justify-between items-center mb-20">
+        <div className="flex lg:flex-row flex-col justify-between items-start lg:items-center gap-5  mb-20">
           <div className="text-3xl sm:text-4xl lg:text-5xl w-full lg:w-[60%]">New Arrivals this<br/> Spring Season</div>
           <Link href="/" className="py-3 px-8 border-[0.1px] border-black rounded-full flex gap-2 items-center ">View All <img src="/icons/arrow.png" alt="Arrow" className="w-8 h-8"/></Link>
         </div>

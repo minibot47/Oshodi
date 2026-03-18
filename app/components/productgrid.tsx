@@ -46,7 +46,25 @@ export default function ProductGrid() {
 
             <div className="mt-3 px-1">
               <h3 className="text-base font-medium text-gray-900 mb-1">{product.name}</h3>
-              <div className="relative h-7 overflow-hidden">
+              {/* Mobile: stacked price + button (no hover overlay) */}
+              <div className="sm:hidden">
+                <div className="flex items-center gap-2">
+                  {product.onSale && (
+                    <span className="text-sm text-gray-400 line-through">
+                      {product.originalPrice}
+                    </span>
+                  )}
+                  <span className="text-sm font-semibold text-gray-800">{product.salePrice}</span>
+                </div>
+                <div className="mt-2">
+                  <button className="text-sm font-semibold text-red-500 hover:text-red-600 transition-colors">
+                    + Add to cart
+                  </button>
+                </div>
+              </div>
+
+              {/* Desktop/tablet: keep hover slide-in behavior */}
+              <div className="hidden sm:block relative h-7 overflow-hidden">
                 <div className="absolute inset-0 flex items-center gap-2 transition-all duration-500 ease-in-out sm:group-hover:-translate-y-full sm:group-hover:opacity-0">
                   {product.onSale && (
                     <span className="text-sm text-gray-400 line-through">{product.originalPrice}</span>
