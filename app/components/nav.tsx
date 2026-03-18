@@ -44,17 +44,17 @@ export default function Nav() {
       <div className="flex items-center gap-6">
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-10">
-          <Link href="/">HOME</Link>
-          <Link href="/shop">SHOP</Link>
+          <Link href="/" className="text-sm font-light">HOME</Link>
+          <Link href="/shop" className="text-sm font-light">SHOP</Link>
 
           <div
             onMouseEnter={() => setCollectionsOpen(true)}
             onMouseLeave={() => setCollectionsOpen(false)}
             className="h-[85px] flex items-center"
           >
-            <span className="flex items-center justify-center gap-2 cursor-pointer">
+            <span className="flex items-center justify-center gap-2 cursor-pointer text-sm font-light ">
               COLLECTIONS
-              <span className="px-2 py-1 text-white bg-orange-400 border-none rounded-[16px] text-[9px]">NEW</span>
+              <span className="px-1.5 text-orange-400 bg-orange-200 border-none rounded-[16px] text-[9px]">NEW</span>
             </span>
           </div>
         </div>
@@ -82,7 +82,7 @@ export default function Nav() {
       {/* Full-width dropdown */}
       {collectionsOpen && (
         <div
-          className="hidden md:block fixed top-[85px] left-0 w-full z-50 px-14 pb-6 pt-6 bg-white shadow-2xl border-t border-gray-100"
+          className="hidden md:block fixed top-[120px] left-0 w-full z-50 px-14 pb-6 pt-6 bg-white shadow-2xl border-t border-gray-100"
           onMouseEnter={() => setCollectionsOpen(true)}
           onMouseLeave={() => setCollectionsOpen(false)}
         >
@@ -112,12 +112,12 @@ export default function Nav() {
       {mobileMenuOpen && (
         <div
           id="mobile-menu"
-          className="md:hidden fixed top-[85px] left-0 w-full z-50 bg-white shadow-2xl border-t border-gray-100"
+          className="md:hidden fixed top-[120px] left-0 w-full z-50 bg-white shadow-2xl border-t border-gray-100"
         >
           <div className="px-4 py-4 flex flex-col gap-4">
             <Link
               href="/"
-              className="text-sm font-semibold text-gray-900 hover:underline underline-offset-4"
+              className="text-sm  font-semibold text-gray-900 hover:underline underline-offset-4"
               onClick={() => setMobileMenuOpen(false)}
             >
               HOME
