@@ -11,15 +11,29 @@ const testimonials = [
 ];
 
 const TOTAL = testimonials.length;
-const DURATION = 800; // ms — change this to make it faster or slower
+const DURATION = 800;
 
 export default function Testimonials() {
   const [start, setStart] = useState(0);
-  const [visualOffset, setVisualOffset] = useState(0); // extra offset during animation (in %)
+  const [visualOffset, setVisualOffset] = useState(0);
   const [animating, setAnimating] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detect screen size
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
+  // On mobile: 1 card visible, so max start = TOTAL - 1
+  // On desktop: 2 cards visible, so max start = TOTAL - 2
+  const cardWidth = isMobile ? 100 : 50;
+  const maxStart = isMobile ? TOTAL - 1 : TOTAL - 2;
 
   const canPrev = start > 0;
-  const canNext = start < TOTAL - 2;
+  const canNext = start < maxStart;
 
   const slide = (dir: "next" | "prev") => {
     if (animating) return;
@@ -27,33 +41,28 @@ export default function Testimonials() {
     if (dir === "prev" && !canPrev) return;
 
     setAnimating(true);
-
-    // Step 1: animate the track by one card width in the right direction
-    setVisualOffset(dir === "next" ? -50 : 50);
+    setVisualOffset(dir === "next" ? -cardWidth : cardWidth);
 
     setTimeout(() => {
-      // Step 2: update the real index and instantly snap back (no transition)
       setStart((s) => (dir === "next" ? s + 1 : s - 1));
-      setVisualOffset(0); // snap — no transition fires here because we set animating false after
+      setVisualOffset(0);
       setAnimating(false);
     }, DURATION);
   };
 
   useEffect(() => {
     const t = setInterval(() => {
-      if (start < TOTAL - 2) slide("next");
+      if (start < maxStart) slide("next");
       else setStart(0);
     }, 5000);
     return () => clearInterval(t);
-  }, [start, animating]);
+  }, [start, animating, isMobile]);
 
-  // Base position + animated offset
-  const translateX = -(start * 50) + visualOffset;
+  const translateX = -(start * cardWidth) + visualOffset;
 
   return (
     <div className="w-full mt-8 flex items-center gap-4">
 
-      {/* Left arrow */}
       <button
         onClick={() => slide("prev")}
         className={`text-4xl flex-shrink-0 transition-colors duration-200 ${
@@ -61,13 +70,11 @@ export default function Testimonials() {
         }`}
       >‹</button>
 
-      {/* Viewport */}
       <div className="flex-1 overflow-hidden">
         <div
           className="flex"
           style={{
             transform: `translateX(${translateX}%)`,
-            // Only apply CSS transition while animating — snap is instant
             transition: animating ? `transform ${DURATION}ms cubic-bezier(0.4, 0, 0.2, 1)` : "none",
           }}
         >
@@ -75,7 +82,7 @@ export default function Testimonials() {
             <div
               key={t.id}
               className="flex-shrink-0 px-2 box-border"
-              style={{ width: "50%" }}
+              style={{ width: `${cardWidth}%` }} // 100% on mobile, 50% on desktop
             >
               <div className="bg-[#1e2330] rounded-2xl p-8 flex flex-col gap-3">
                 <span className="text-3xl text-orange-500 leading-none">❝</span>
@@ -87,9 +94,8 @@ export default function Testimonials() {
         </div>
       </div>
 
-      {/* Dot indicators */}
-      <div className="flex flex-col gap-2 flex-shrink-0">
-        {testimonials.slice(0, TOTAL - 1).map((_, i) => (
+      <div className=" hidden sm:flex flex-col gap-2 flex-shrink-0">
+        {testimonials.slice(0, maxStart + 1).map((_, i) => (
           <button
             key={i}
             onClick={() => !animating && setStart(i)}
@@ -100,7 +106,6 @@ export default function Testimonials() {
         ))}
       </div>
 
-      {/* Right arrow */}
       <button
         onClick={() => slide("next")}
         className={`text-4xl flex-shrink-0 transition-colors duration-200 ${

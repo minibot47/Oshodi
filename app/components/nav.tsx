@@ -36,10 +36,11 @@ export default function Nav() {
 
   return (
     <nav className="w-full h-[85px] text-black flex justify-between items-center max-w-[1440px]">
-      <div className="flex items-center gap-2">
+      <Link href='/' className="flex items-center gap-2">
         <img src="/logo.png" alt="logo" className="w-10 h-10" />
         <h2>OSHODI</h2>
-      </div>
+      </Link>
+
 
       <div className="flex items-center gap-6">
         {/* Desktop nav */}
@@ -112,19 +113,19 @@ export default function Nav() {
       {mobileMenuOpen && (
         <div
           id="mobile-menu"
-          className="md:hidden fixed top-[120px] left-0 w-full z-50 bg-white shadow-2xl border-t border-gray-100"
+          className="md:hidden fixed top-[90px] left-0 w-full z-50 bg-white shadow-2xl border-t border-gray-100"
         >
           <div className="px-4 py-4 flex flex-col gap-4">
             <Link
               href="/"
-              className="text-sm  font-semibold text-gray-900 hover:underline underline-offset-4"
+              className="text-sm  font-light text-gray-900 hover:underline underline-offset-4"
               onClick={() => setMobileMenuOpen(false)}
             >
               HOME
             </Link>
             <Link
               href="/shop"
-              className="text-sm font-semibold text-gray-900 hover:underline underline-offset-4"
+              className="text-sm font-light text-gray-900 hover:underline underline-offset-4"
               onClick={() => setMobileMenuOpen(false)}
             >
               SHOP
@@ -135,9 +136,9 @@ export default function Nav() {
               onClick={() => setMobileCollectionsOpen((v) => !v)}
               type="button"
             >
-              <span className="flex items-center gap-2">
+              <span className="flex items-center gap-2 text-sm font-light">
                 COLLECTIONS
-                <span className="px-2 py-1 text-white bg-orange-400 border-none rounded-[16px] text-[9px]">NEW</span>
+                <span className="px-1.5 text-orange-400 bg-orange-200  border-none rounded-[16px] text-[9px]">NEW</span>
               </span>
               <span className="text-gray-500">{mobileCollectionsOpen ? "−" : "+"}</span>
             </button>
