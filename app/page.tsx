@@ -7,14 +7,31 @@ import Testimonials from "./components/testimonials";
 import FlashSaleTimer from "./components/flashsale";
 
 export default function Home() {
+  const heroBg =
+    "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=1600&q=80";
+  const philosophyBg =
+    "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=1600&q=80";
+  const collectionSummerBg =
+    "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=1600&q=80";
+  const collectionSweatersBg =
+    "https://images.unsplash.com/photo-1583744946564-b52ac1c389c8?w=1600&q=80";
+  const flashSaleBg =
+    "https://images.unsplash.com/photo-1554412933-514a83d2f3c8";
+
   return (
     <main className="min-h-screen flex flex-col gap-3 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-14">
       <Nav/>
-      <div className="w-full bg-red-500 h-[55vh] sm:h-[60vh] lg:h-[75vh] rounded-[16px] flex flex-col items-center justify-center gap-8">
-        <h2 className="text-white text-4xl sm:text-5xl lg:text-7xl w-full lg:w-[750px] text-center px-2">
+      <div className="relative w-full h-[55vh] sm:h-[60vh] lg:h-[75vh] rounded-[16px] overflow-hidden flex flex-col items-center justify-center gap-8">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${heroBg})` }}
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 bg-black/20" aria-hidden="true" />
+        <h2 className="relative z-10 text-white text-4xl sm:text-5xl lg:text-7xl w-full lg:w-[750px] text-center px-2">
           Explore the Best in Fashion at Oshodi.
         </h2>
-        <div className="bg-white py-4 px-8 rounded-full">Explore now</div>
+        <div className="relative z-10 bg-white py-4 px-8 rounded-full">Explore now</div>
       </div>
 
       {/* BRANDS */}
@@ -50,7 +67,14 @@ export default function Home() {
               </h2>
             </div>
           </div>
-          <div className="w-full lg:w-[60%] h-[35vh] lg:h-full bg-blue-500 rounded-[16px]"></div>
+          <div className="w-full lg:w-[60%] h-[35vh] lg:h-full rounded-[16px] overflow-hidden relative">
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: `url(${philosophyBg})` }}
+              aria-hidden="true"
+            />
+            <div className="absolute inset-0 bg-black/10" aria-hidden="true" />
+          </div>
         </div>
       </div>
 
@@ -61,26 +85,53 @@ export default function Home() {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl">A Collection of Cool<br/> Clothes Available Here</h2>
         </div>
         <div className="h-auto lg:h-[60vh] w-full rounded-[16px] gap-3 flex flex-col lg:flex-row">
-          <div className="w-full lg:w-[38%] bg-green-500 rounded-[16px] flex flex-col items-start justify-end p-5 text-white">
-              <h2 className="text-3xl text-white">Summer Wear</h2>
-              <h3>Men & Women summer collection.</h3>
-              <h2 className="flex gap-3 items-center bg-black text-white px-6 py-2 rounded-full mt-4">See Product <img src="/icons/whitearrow.png" alt="Arrow" className="h-2 w-8"/> </h2>
+          <div className="w-full lg:w-[38%] rounded-[16px] overflow-hidden relative flex flex-col items-start justify-end p-5 text-white">
+              <div
+                className="absolute inset-0 bg-cover bg-center"
+                style={{ backgroundImage: `url(${collectionSummerBg})` }}
+                aria-hidden="true"
+              />
+              <div className="absolute inset-0 bg-black/20" aria-hidden="true" />
+              <h2 className="relative z-10 text-3xl text-white">Summer Wear</h2>
+              <h3 className="relative z-10">Men & Women summer collection.</h3>
+              <h2 className="relative z-10 flex gap-3 items-center bg-black text-white px-6 py-2 rounded-full mt-4">
+                See Product <img src="/icons/whitearrow.png" alt="Arrow" className="h-2 w-8"/>{" "}
+              </h2>
           </div>
           <div className="w-full lg:w-[24%] rounded-[16px] flex flex-col gap-3">
-            <div className="w-full h-[60%] bg-gray-500 rounded-[16px] flex flex-col items-start justify-end p-5 text-white">
-              <h2 className="text-3xl text-white">Jackets</h2>
-              <h3>Spring to Autumn.</h3>
-              <h2 className="flex gap-3 items-center bg-black text-white px-6 py-2 rounded-full mt-4">See Product <img src="/icons/whitearrow.png" alt="Arrow" className="h-2 w-8"/> </h2>
+            <div className="w-full h-[60%] rounded-[16px] overflow-hidden relative flex flex-col items-start justify-end p-5 text-white">
+              <div
+                className="absolute inset-0 bg-cover bg-center"
+                style={{
+                  backgroundImage:
+                    'url("https://images.unsplash.com/photo-1554412933-514a83d2f3c8")',
+                }}
+                aria-hidden="true"
+              />
+              <div className="absolute inset-0 bg-black/20" aria-hidden="true" />
+              <h2 className="relative z-10 text-3xl text-white">Jackets</h2>
+              <h3 className="relative z-10">Spring to Autumn.</h3>
+              <h2 className="relative z-10 flex gap-3 items-center bg-black text-white px-6 py-2 rounded-full mt-4">
+                See Product <img src="/icons/whitearrow.png" alt="Arrow" className="h-2 w-8" />{" "}
+              </h2>
             </div>
             <div className="w-full h-[40%] bg-black rounded-[16px] flex flex-col items-start p-5 text-white justify-between gap-3 lg:gap-0">
               <h2 className="py-2 px-5 border-white border-[1px] text-white rounded-full">Special Offers</h2>
               <h2 className="text-2xl">Get 20% off with the code OSHODI20</h2>
             </div>
           </div>
-          <div className="w-full lg:w-[38%] bg-blue-500 rounded-[16px] flex flex-col items-start justify-end p-5 text-white">
-              <h2 className="text-3xl text-white">Sweaters</h2>
-              <h3>Keeping you warm all day.</h3>
-              <h2 className="flex gap-3 items-center bg-black text-white px-6 py-2 rounded-full mt-4">See Product <img src="/icons/whitearrow.png" alt="Arrow" className="h-2 w-8"/> </h2>
+          <div className="w-full lg:w-[38%] rounded-[16px] overflow-hidden relative flex flex-col items-start justify-end p-5 text-white">
+              <div
+                className="absolute inset-0 bg-cover bg-center"
+                style={{ backgroundImage: `url(${collectionSweatersBg})` }}
+                aria-hidden="true"
+              />
+              <div className="absolute inset-0 bg-black/20" aria-hidden="true" />
+              <h2 className="relative z-10 text-3xl text-white">Sweaters</h2>
+              <h3 className="relative z-10">Keeping you warm all day.</h3>
+              <h2 className="relative z-10 flex gap-3 items-center bg-black text-white px-6 py-2 rounded-full mt-4">
+                See Product <img src="/icons/whitearrow.png" alt="Arrow" className="h-2 w-8"/>{" "}
+              </h2>
           </div>
         </div>
       </div>
@@ -105,9 +156,17 @@ export default function Home() {
       </div>
 
       {/* FLASHSALE */}
-      <div className="w-full h-[60vh] sm:h-[70vh] lg:h-[85vh] bg-red-500 rounded-[16px] mb-20 p-6 sm:p-10 flex flex-col gap-10 items-start">
-        <h2 className="text-4xl sm:text-5xl lg:text-8xl">Check out<br/> today's flashsale</h2>
-        <h3 className="text-base sm:text-xl font-thin">Get ready for an electrifying shopping experience! Our Flash Sale<br/> is here, offering unbeatable deals for a limited time.</h3>
+      <div className="relative w-full h-[60vh] sm:h-[70vh] lg:h-[85vh] rounded-[16px] mb-20 p-6 sm:p-10 overflow-hidden flex flex-col gap-10 items-start">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${flashSaleBg})` }}
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 bg-black/20" aria-hidden="true" />
+        <h2 className="relative z-10 text-4xl sm:text-5xl lg:text-8xl">Check out<br/> today's flashsale</h2>
+        <h3 className="relative z-10 text-base sm:text-xl font-thin">
+          Get ready for an electrifying shopping experience! Our Flash Sale<br/> is here, offering unbeatable deals for a limited time.
+        </h3>
         <Link href='/' className="px-8 py-4 bg-white text-black rounded-full">Go to Sale Items</Link>
         <FlashSaleTimer/>
       </div>

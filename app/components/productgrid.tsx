@@ -1,5 +1,7 @@
 // components/ProductGrid.jsx
+"use client";
 import Link from "next/link";
+import { useCart } from "../components/cartcontext";
 
 const products = [
   { id: 1, name: "Denim Jacket",      originalPrice: "65.00 $", salePrice: "55.00 $", onSale: true,  category: "Jackets", tag: "SALE", sku: "WOO-001", desc: "Effortlessly cool and endlessly versatile, our Denim Jacket is a wardrobe staple that never goes out of style. Crafted from premium denim, this jacket combines comfort with a touch of rugged charm.", img: "https://images.unsplash.com/photo-1544642899-f0d6e5f6ed6f?w=800&q=80" },
@@ -17,6 +19,7 @@ const products = [
 export { products };
 
 export default function ProductGrid() {
+  const { addToCart } = useCart();
   return (
     <div className="w-full">
       <div className="flex items-center justify-between mb-6">
@@ -57,7 +60,15 @@ export default function ProductGrid() {
                   <span className="text-sm font-semibold text-gray-800">{product.salePrice}</span>
                 </div>
                 <div className="mt-2">
-                  <button className="text-sm font-semibold text-red-500 hover:text-red-600 transition-colors">
+                  <button
+                    type="button"
+                    className="text-sm font-semibold text-red-500 hover:text-red-600 transition-colors"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      addToCart(product, 1);
+                    }}
+                  >
                     + Add to cart
                   </button>
                 </div>
@@ -72,7 +83,15 @@ export default function ProductGrid() {
                   <span className="text-sm font-semibold text-gray-800">{product.salePrice}</span>
                 </div>
                 <div className="absolute inset-0 flex items-center transition-all duration-500 ease-in-out translate-y-0 opacity-100 sm:translate-y-full sm:opacity-0 sm:group-hover:translate-y-0 sm:group-hover:opacity-100">
-                  <button className="text-sm font-semibold text-red-500 hover:text-red-600 transition-colors">
+                  <button
+                    type="button"
+                    className="text-sm font-semibold text-red-500 hover:text-red-600 transition-colors"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      addToCart(product, 1);
+                    }}
+                  >
                     + Add to cart
                   </button>
                 </div>

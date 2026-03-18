@@ -7,6 +7,7 @@ import Nav from "../components/nav";
 import Footer from "../components/footer";
 import { products } from "../components/productgrid";
 import ProductGrid from "../components/productgrid";
+import { useCart } from "../components/cartcontext";
 
 // Map URL param → display name + hero image
 const categoryMeta = {
@@ -26,6 +27,7 @@ type CategoryKey = keyof typeof categoryMeta;
 
 export default function ShopPage() {
   const searchParams = useSearchParams();
+  const { addToCart } = useCart();
   const cat = searchParams.get("category") as CategoryKey | null; // e.g. "jackets"
   const meta = cat ? categoryMeta[cat] : null;
   const filterKey = cat ? categoryFilter[cat] : null;
@@ -89,7 +91,17 @@ export default function ShopPage() {
             <div className="absolute inset-0 bg-black/40" />
           </>
         ) : (
-          <div className="absolute inset-0 bg-blue-500" />
+          <>
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{
+                backgroundImage:
+                  'url("https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=1600&q=80")',
+              }}
+              aria-hidden="true"
+            />
+            <div className="absolute inset-0 bg-black/40" aria-hidden="true" />
+          </>
         )}
         <div className="relative z-10 flex flex-col items-center gap-2 text-white">
           <div className="flex gap-2 text-sm text-white/80">
@@ -161,7 +173,17 @@ export default function ShopPage() {
                     <span className="text-sm font-semibold text-gray-800">{product.salePrice}</span>
                   </div>
                   <div className="mt-2">
-                    <span className="block text-sm font-semibold text-red-500">+ Add to cart</span>
+                    <button
+                      type="button"
+                      className="block text-sm font-semibold text-red-500 hover:text-red-600 transition-colors"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        addToCart(product, 1);
+                      }}
+                    >
+                      + Add to cart
+                    </button>
                   </div>
                 </div>
 
@@ -174,7 +196,17 @@ export default function ShopPage() {
                     <span className="text-sm font-semibold text-gray-800">{product.salePrice}</span>
                   </div>
                   <div className="absolute inset-0 flex items-center transition-all duration-500 ease-in-out translate-y-0 opacity-100 sm:translate-y-full sm:opacity-0 sm:group-hover:translate-y-0 sm:group-hover:opacity-100">
-                    <span className="text-sm font-semibold text-red-500">+ Add to cart</span>
+                    <button
+                      type="button"
+                      className="text-sm font-semibold text-red-500 hover:text-red-600 transition-colors"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        addToCart(product, 1);
+                      }}
+                    >
+                      + Add to cart
+                    </button>
                   </div>
                 </div>
               </div>

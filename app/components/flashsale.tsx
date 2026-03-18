@@ -35,13 +35,13 @@ export default function FlashSaleTimer() {
   ];
 
   return (
-    <div className="w-fit flex gap-5 h-fit text-white">
+    <div className="w-fit flex gap-5 h-fit text-white z-10">
       {blocks.map(({ label, value }) => (
         <div
           key={label}
-          className="w-[70px] h-[70px] lg:w-[120px] lg:h-[120px] bg-gray-600 rounded-[16px] flex flex-col items-center justify-center gap-1"
+          className="w-[70px] h-[70px] lg:w-[120px] lg:h-[120px] bg-gray-600 rounded-[16px] flex flex-col items-center justify-center gap-1 text-white"
         >
-          <h2 className="text-2xl lg:text-6xl font-semibold tabular-nums">{pad(value)}</h2>
+          <h2 className="text-2xl lg:text-6xl font-semibold tabular-nums text-white">{pad(value)}</h2>
           <h2 className="text-sm lg:text-sm">{label}</h2>
         </div>
       ))}
