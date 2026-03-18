@@ -1,3 +1,7 @@
+// app/layout.tsx
+import Banner from "./components/banner";
+import CartDrawer from "./components/cartdrawer";
+import { CartProvider } from "./components/cartcontext";
 import "./globals.css";
 import type { Metadata } from "next";
 
@@ -14,7 +18,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-gray-100 text-gray-900">
-        {children}
+        <CartProvider>
+          <Banner />
+          {children}
+          <CartDrawer />
+        </CartProvider>
       </body>
     </html>
   );
