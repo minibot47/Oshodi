@@ -11,9 +11,9 @@ import { useCart } from "../components/cartcontext";
 
 // Map URL param → display name + hero image
 const categoryMeta = {
-  summer:   { label: "Summer Wear",  img: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=1400&q=80" },
-  jackets:  { label: "Jackets",      img: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=1400&q=80" },
-  sweaters: { label: "Sweaters",     img: "https://images.unsplash.com/photo-1583744946564-b52ac1c389c8?w=1400&q=80" },
+  summer:   { label: "Summer Wear",  img: "/images/collection1.webp" },
+  jackets:  { label: "Jackets",      img: "/images/collection2.webp" },
+  sweaters: { label: "Sweaters",     img: "/images/collection3.webp" },
 };
 
 // Map category param → product category string in your products array
@@ -79,28 +79,17 @@ export default function ShopPage() {
 
   return (
     <div className="min-h-screen flex flex-col items-center gap-3 m-auto">
-      {/* Hero — changes based on category */}
+      {/* Hero — always the same image */}
       <div className="relative w-full h-[30vh] flex flex-col gap-3 items-center justify-center overflow-hidden">
-        {meta ? (
-          <>
-            <img src={meta.img} alt={meta.label} className="absolute inset-0 w-full h-full object-cover object-top" />
-            <div className="absolute inset-0 bg-black/40" />
-          </>
-        ) : (
-          <>
-            <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{
-                backgroundImage:
-                  'url("https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=1600&q=80")',
-              }}
-              aria-hidden="true"
-            />
-            <div className="absolute inset-0 bg-black/40" aria-hidden="true" />
-          </>
-        )}
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: 'url("/images/defaultstore.webp")' }}
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 bg-black/40" aria-hidden="true" />
+
         <div className="relative z-10 flex flex-col items-center gap-5 text-white">
-          <div className="flex gap-2 text-sm font-light text-white/80">
+          <div className="flex gap-2 text-lg font-extralight text-white/80">
             <Link href="/" className="hover:underline">Home</Link>
             <span>›</span>
             <Link href="/shop" className="hover:underline">Shop</Link>

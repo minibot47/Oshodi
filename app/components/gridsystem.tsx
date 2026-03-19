@@ -8,7 +8,7 @@ const products = [
       originalPrice: "20.00 $",
       salePrice: "18.00 $",
       onSale: true,
-      img: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&q=80",
+      img: "/images/polkadotteddress.webp",
     },
     {
       id: 2,
@@ -16,7 +16,7 @@ const products = [
       originalPrice: null,
       salePrice: "15.00 $",
       onSale: false,
-      img: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=80",
+      img: "/images/furryjacket.webp",
     },
     {
       id: 3,
@@ -24,7 +24,7 @@ const products = [
       originalPrice: null,
       salePrice: "20.00 $",
       onSale: false,
-      img: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600&q=80",
+      img: "/images/dotted.webp",
     },
     {
       id: 4,
@@ -32,7 +32,7 @@ const products = [
       originalPrice: null,
       salePrice: "25.00 $",
       onSale: false,
-      img: "https://images.unsplash.com/photo-1554412933-514a83d2f3c8?w=600&q=80",
+      img: "/images/long.webp",
     },
     {
       id: 5,
@@ -40,7 +40,7 @@ const products = [
       originalPrice: null,
       salePrice: "45.00 $",
       onSale: false,
-      img: "https://images.unsplash.com/photo-1583744946564-b52ac1c389c8?w=600&q=80",
+      img: "/images/longnecksweater.webp",
     },
     {
       id: 6,
@@ -48,7 +48,7 @@ const products = [
       originalPrice: "18.00 $",
       salePrice: "16.00 $",
       onSale: true,
-      img: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=600&q=80",
+      img: "/images/longjacket.webp",
     },
   ];
   
@@ -60,7 +60,7 @@ const products = [
         {products.map((product) => (
           <div
             key={product.id}
-            className="relative overflow-hidden cursor-pointer group w-full h-[400px]"
+            className="relative overflow-hidden cursor-pointer group w-full h-[430px]"
           >
   
             <img
