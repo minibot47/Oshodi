@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-gray-100 text-gray-900">
+      <body className="bg-white text-gray-900">
         <CartProvider>
           <Banner />
           {children}

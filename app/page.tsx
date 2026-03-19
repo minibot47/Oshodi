@@ -19,9 +19,10 @@ export default function Home() {
     "https://images.unsplash.com/photo-1554412933-514a83d2f3c8";
 
   return (
+    <>
+    <Nav/>
     <main className="min-h-screen flex flex-col gap-3 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-14">
-      <Nav/>
-      <div className="relative w-full h-[55vh] sm:h-[60vh] lg:h-[75vh] rounded-[16px] overflow-hidden flex flex-col items-center justify-center gap-8">
+      <div className="relative w-full mt-[10] h-[55vh] sm:h-[60vh] lg:h-[75vh] rounded-[16px] overflow-hidden flex flex-col items-center justify-center gap-8">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${heroBg})` }}
@@ -172,6 +173,7 @@ export default function Home() {
       </div>
 
       <Footer/>
-    </main>
+    </main></>
+
   );
 }
