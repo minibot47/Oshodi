@@ -2,38 +2,38 @@ import Link from "next/link"
 
 export default function Footer(){
     return(
-        <div className="w-full h-auto sm:h-[40vh] max-w-[1440px] m-auto text-black flex flex-col gap-2 mb-10 px-4 sm:px-6 lg:px-14">
-            <div className="w-full h-full flex flex-col sm:flex-row">
+        <div className="w-full h-auto sm:h-[40vh] max-w-[1440px] m-auto text-black flex flex-col gap-1 mb-5 px-4 sm:px-6 lg:px-14">
+            <div className="w-full h-full flex flex-col  sm:flex-row">
                 <div className="w-full sm:w-[25%] py-3 flex flex-col gap-3 ">
-                    <div className="flex">
-                        <img src="/icons/logo.png" alt="logo" className="w-3 h-3" />
-                        <h2 className="text-2xl sm:text-4xl font-semibold">vault</h2>
-                    </div>
+                    <Link href="/" className="flex items-end gap-1">
+                        <span className="text-orange-500 text-lg sm:text-2xl font-bold mb-1">✳</span>
+                        <h2 className="font-medium text-2xl sm:text-4xl">vault</h2>
+                    </Link>
                     <h3 className="text-sm">Make your clothing style cooler and more modern, only here.</h3>
                 </div>
                 <div className="w-full sm:w-[18%] p-5 flex flex-col gap-2">
-                    <h2 className="text-xl sm:text-2xl mb-2">Get Help</h2>
+                    <h2 className="text-xl sm:text-xl mb-2 font-medium">Get Help</h2>
                     <Link href="" className="text-sm">Delivery</Link>
                     <Link href="" className="text-sm">Returns</Link>
                     <Link href="" className="text-sm">Payment Options</Link>
                     <Link href="" className="text-sm">Contact Us</Link>
                 </div>
                 <div className="w-full sm:w-[18%] p-5 flex flex-col gap-2">
-                    <h2 className="text-xl sm:text-2xl mb-2">About Vault</h2>
+                    <h2 className="text-xl sm:text-xl mb-2 font-medium">About Vault</h2>
                     <Link href="" className="text-sm">News</Link>
                     <Link href="" className="text-sm">Careers</Link>
                     <Link href="" className="text-sm">Investors</Link>
                     <Link href="" className="text-sm">Sustainability</Link>
                 </div>
                 <div className="w-full sm:w-[20%] p-5 flex flex-col gap-2">
-                    <h2 className="text-xl sm:text-2xl mb-2">Social Media</h2>
+                    <h2 className="text-xl sm:text-xl mb-2 font-medium">Social Media</h2>
                     <Link href="" className="text-sm">Instagram</Link>
                     <Link href="" className="text-sm">Facebook</Link>
                     <Link href="" className="text-sm">Linkedin</Link>
                     <Link href="" className="text-sm">Twitter</Link>
                 </div>
                 <div className="w-full sm:w-[20%] p-5 flex flex-col gap-2">
-                    <h2 className="text-xl sm:text-2xl mb-2">Contact</h2>
+                    <h2 className="text-xl sm:text-xl mb-2 font-medium">Contact</h2>
                     <Link href="" className="text-sm">toludairo534@gmail.com</Link>
                     <Link href="" className="text-sm">Address of the company</Link>
 

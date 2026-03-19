@@ -65,23 +65,23 @@ export default function Nav() {
         style={{ transform: visible ? "translateY(0)" : "translateY(-100%)" }}
       >
         <nav className="w-full h-[85px]  text-black flex justify-between items-center max-w-[1440px] mx-auto px-3 sm:px-6 lg:px-10">
-          <Link href="/" className="flex gap-1">
-            <img src="/icons/logo.png" alt="logo" className="w-3 h-3" />
-            <h2 className="font-semibold text-2xl sm:text-3xl ">vault</h2>
+          <Link href="/" className="flex items-end gap-1">
+            <span className="text-orange-500 text-lg sm:text-2xl font-bold mb-1">✳</span>
+            <h2 className="font-medium text-2xl sm:text-3xl">vault</h2>
           </Link>
 
           <div className="flex items-center gap-12">
             {/* Desktop nav */}
             <div className="hidden md:flex items-center gap-10">
-              <Link href="/" className="text-[12px] font-light">HOME</Link>
-              <Link href="/shop" className="text-[12px] font-light">SHOP</Link>
+              <Link href="/" className="text-sm font-semibold">HOME</Link>
+              <Link href="/shop" className="text-sm font-semibold">SHOP</Link>
 
               <div
                 onMouseEnter={() => setCollectionsOpen(true)}
                 onMouseLeave={() => setCollectionsOpen(false)}
                 className="h-[85px] flex items-center"
               >
-                <span className="flex items-center justify-center gap-2 cursor-pointer text-sm font-light">
+                <span className="flex items-center justify-center gap-2 cursor-pointer text-sm font-semibold">
                   COLLECTIONS
                   <span className="px-1.5 text-orange-400 bg-orange-100 border-none rounded-[5px] text-[9px]">NEW</span>
                   <img src="/icons/downarrow.png" alt="Arrow" className="w-2 h-1"/>
@@ -118,16 +118,16 @@ export default function Nav() {
                   <Link
                     key={col.id}
                     href={col.href}
-                    className="group relative overflow-hidden rounded-xl aspect-[4/3] block"
+                    className="group relative overflow-hidden rounded-xl w-full h-[280px] block"
                     onClick={() => setCollectionsOpen(false)}
                   >
                     <img src={col.img} alt={col.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-300" />
-                    <div className="absolute bottom-0 left-0 p-4 text-white">
-                      <h3 className="text-lg font-bold">{col.name}</h3>
-                      <p className="text-xs opacity-90 mb-3">{col.desc}</p>
-                      <div className="flex items-center gap-2 bg-[#1a1a1a] text-white text-xs font-semibold px-4 py-2 rounded-full w-fit">
-                        See Products →
+                    <div className="absolute flex flex-col  bottom-0 left-0 p-4 text-white">
+                      <h3 className="text-2xl font-medium">{col.name}</h3>
+                      <p className="text-lg font-extralight opacity-90 mb-4">{col.desc}</p>
+                      <div className="flex items-center gap-2 bg-[#1a1a1a] text-white text-lg font-semibold px-5 py-3 rounded-full w-fit">
+                        See Products  →
                       </div>
                     </div>
                   </Link>

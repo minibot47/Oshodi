@@ -6,6 +6,12 @@ import "./globals.css";
 import type { Metadata } from "next";
 import Nav from "./components/nav";
 import Footer from "./components/footer";
+import { Barlow } from "next/font/google";
+
+const barlow = Barlow({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+});
 
 export const metadata: Metadata = {
   title: "OSHODI",
@@ -19,7 +25,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-white text-gray-900">
+      <body className={`${barlow.className} bg-white text-black`}>
         <CartProvider>
           <Banner />
           <Nav/>
