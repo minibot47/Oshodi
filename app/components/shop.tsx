@@ -130,10 +130,10 @@ export default function ShopPage() {
         </div>
 
         {/* Reuse the same card layout from ProductGrid but with filtered data */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-10 w-full -mt-14 mb-20">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-7 gap-y-10 w-full -mt-14 mb-20">
           {displayed.map((product) => (
             <Link key={product.id} href={`/shop/${product.id}`} className="group cursor-pointer">
-              <div className="relative overflow-hidden  bg-gray-100 h-[400px] w-full">
+              <div className="relative overflow-hidden  bg-gray-100 h-[450px] w-full">
                 {product.onSale && (
                   <div className="absolute top-3 left-3 z-10 bg-[#1a1a1a] text-white text-xs font-semibold px-3 py-1 rounded-sm tracking-wider">
                     SALE!

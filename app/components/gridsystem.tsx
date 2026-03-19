@@ -60,7 +60,7 @@ const products = [
         {products.map((product) => (
           <div
             key={product.id}
-            className="relative overflow-hidden cursor-pointer group w-full h-[430px]"
+            className="relative overflow-hidden cursor-pointer group w-full h-[480px]"
           >
   
             <img

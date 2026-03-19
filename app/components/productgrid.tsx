@@ -43,7 +43,7 @@ export default function ProductGrid() {
               <img
                 src={product.img}
                 alt={product.name}
-                className="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
+                className="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-110"
               />
             </div>
 
