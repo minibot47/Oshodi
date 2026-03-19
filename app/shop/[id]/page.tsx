@@ -190,7 +190,7 @@ export default function ProductDetail({ params }: ProductDetailProps) {
             <span className="text-base w-4 text-center">{qty}</span>
             <button onClick={() => setQty((q) => q + 1)} className="text-lg text-gray-500 hover:text-black">+</button>
           </div>
-          <button className="bg-[#1a1a1a] text-white rounded-full px-6 sm:px-10 py-3 text-sm font-semibold hover:bg-black transition-colors">
+          <button onClick={() => addToCart(product, qty)} className="bg-[#1a1a1a] text-white rounded-full px-6 sm:px-10 py-3 text-sm font-semibold hover:bg-black transition-colors">
             Add to cart
           </button>
         </div>
