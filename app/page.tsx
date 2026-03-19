@@ -62,7 +62,7 @@ export default function Home() {
           </div>
           <Link href="/shop" className="py-3 px-8 border-[0.1px] border-black rounded-full flex gap-2 items-center ">See the Collection <img src="/icons/arrow.png" alt="Arrow" className="w-8 h-8"/></Link>
         </div>
-        <div className="w-full flex flex-col lg:flex-row lg:items-stretch gap-4 lg:gap-0 h-auto lg:h-[60vh] mt-1 sm:mt-16">
+        <div className="w-full flex flex-col lg:flex-row lg:items-stretch gap-4 lg:gap-0 h-auto lg:h-[67vh] mt-1 sm:mt-16">
           <div className="w-full lg:w-[38%] h-[45vh] lg:h-full">
             <div className="w-full h-[50%]"></div>
             <div className="w-full sm:w-[90%] h-[50%] flex flex-col gap-2 justify-end p-0  sm:p-3 ">
