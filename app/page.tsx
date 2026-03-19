@@ -23,7 +23,7 @@ export default function Home() {
   return (
     <>
     <main className="min-h-screen flex flex-col gap-3 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
-      <div className="relative w-full mt-[10] sm:h-[60vh] lg:h-[580px] rounded-[16px] overflow-hidden flex flex-col items-center justify-center gap-8">
+      <div className="relative w-full mt-[10] h-[60vh] sm:h-[60vh] lg:h-[580px] rounded-[16px] overflow-hidden flex flex-col items-center justify-center gap-8">
         <video
           autoPlay
           loop

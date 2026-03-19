@@ -90,7 +90,7 @@ export default function Nav() {
             </div>
 
             {/* Cart */}
-            <button onClick={() => setOpen(true)} className="flex relative mr-3">
+            <button onClick={() => setOpen(true)} className="flex relative -mr-6 sm:mr-3">
               <img src="/icons/cart.png" alt="Cart" className="w-4 h-4" />
               <div className="absolute -top-1 -right-3  text-black text-[11px] w-3 h-3 rounded-full flex items-center justify-center">{cartCount}</div>
             </button>
