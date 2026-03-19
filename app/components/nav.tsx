@@ -61,7 +61,7 @@ export default function Nav() {
     <>
       {/* Sticky nav wrapper — slides up/down smoothly */}
       <div
-        className="sticky top-0 z-50 w-full bg-white transition-transform duration-500 ease-in-out"
+        className="sticky top-0 z-50 w-full bg-white transition-transform duration-500 ease-in-out max-w-[1440px] m-auto"
         style={{ transform: visible ? "translateY(0)" : "translateY(-100%)" }}
       >
         <nav className="w-full h-[85px]  text-black flex justify-between items-center max-w-[1440px] mx-auto px-3 sm:px-6 lg:px-14">

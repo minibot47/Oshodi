@@ -2,7 +2,7 @@ import Link from "next/link"
 
 export default function Footer(){
     return(
-        <div className="w-full h-auto sm:h-[40vh] text-black flex flex-col gap-2 mb-10">
+        <div className="w-full h-auto sm:h-[40vh] max-w-[1440px] m-auto text-black flex flex-col gap-2 mb-10 px-4 sm:px-6 lg:px-14">
             <div className="w-full h-full flex flex-col sm:flex-row">
                 <div className="w-full sm:w-[25%] p-5 flex flex-col gap-3">
                     <img src="" alt="LOGO"/>
@@ -38,8 +38,8 @@ export default function Footer(){
                 </div>
             </div>
             <div className="border-t-[0.1px] border-gray-500 flex items-center justify-between py-3 px-3 ">
-                <div className="w-full sm:w-[80%] m-auto flex flex-col sm:flex-row gap-3 sm:items-center justify-between">
-                    <div className="w-full">
+                <div className="w-full sm:w-[85%]  m-auto flex flex-col sm:flex-row gap-3 sm:items-center justify-between">
+                    <div className="w-fit">
                         <h1>© 2026 Vault Theme by Oshodi. All rights reserved.</h1>
                     </div>
                     <div className="flex gap-3  font-light">

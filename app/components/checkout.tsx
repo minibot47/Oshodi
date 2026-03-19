@@ -57,10 +57,6 @@ export default function CheckoutPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-14">
-        <Nav />
-      </div>
-
       {/* Hero */}
       <div className="relative w-full h-[280px] flex flex-col items-center justify-center overflow-hidden">
         <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1400&q=80" alt="checkout" className="absolute inset-0 w-full h-full object-cover" />
@@ -201,10 +197,6 @@ export default function CheckoutPage() {
           </div>
 
         </div>
-      </div>
-
-      <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-14">
-        <Footer />
       </div>
     </div>
   );

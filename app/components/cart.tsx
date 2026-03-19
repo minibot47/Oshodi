@@ -10,10 +10,6 @@ export default function CartPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-14">
-        <Nav />
-      </div>
-
       {/* Hero */}
       <div className="relative w-full h-[280px] flex flex-col items-center justify-center overflow-hidden">
         <img
@@ -50,7 +46,7 @@ export default function CartPage() {
             {/* Desktop table */}
             <div className="hidden sm:block">
               {/* Table header */}
-              <div className="grid grid-cols-[2fr_1fr_1fr_1fr] gap-4 border-b border-gray-200 pb-3 text-sm font-semibold text-gray-700 uppercase tracking-wide">
+              <div className="grid  mb-3 grid-cols-[2fr_1fr_1fr_1fr] gap-4 border-b border-gray-200 pb-3 text-sm font-semibold text-gray-700 uppercase tracking-wide">
                 <span>Product</span>
                 <span>Price</span>
                 <span>Quantity</span>
@@ -156,10 +152,6 @@ export default function CartPage() {
             </div>
           </div>
         )}
-      </div>
-
-      <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-14">
-        <Footer />
       </div>
     </div>
   );

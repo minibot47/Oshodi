@@ -20,7 +20,6 @@ export default function Home() {
 
   return (
     <>
-    <Nav/>
     <main className="min-h-screen flex flex-col gap-3 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-14">
       <div className="relative w-full mt-[10] h-[55vh] sm:h-[60vh] lg:h-[75vh] rounded-[16px] overflow-hidden flex flex-col items-center justify-center gap-8">
         <div
@@ -171,8 +170,6 @@ export default function Home() {
         <Link href='/' className="px-8 py-4 bg-white text-black rounded-full">Go to Sale Items</Link>
         <FlashSaleTimer/>
       </div>
-
-      <Footer/>
     </main></>
 
   );

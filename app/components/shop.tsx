@@ -79,10 +79,6 @@ export default function ShopPage() {
 
   return (
     <div className="min-h-screen flex flex-col items-center gap-3 m-auto">
-      <div className="w-full max-w-[1440px] h-fit flex flex-col px-4 sm:px-6 lg:px-16">
-        <Nav />
-      </div>
-
       {/* Hero — changes based on category */}
       <div className="relative w-full h-[30vh] flex flex-col gap-3 items-center justify-center overflow-hidden">
         {meta ? (
@@ -122,8 +118,8 @@ export default function ShopPage() {
       {/* Product grid — filtered */}
       <div className="min-h-screen flex flex-col items-center px-4 sm:px-6 lg:px-16 gap-10 sm:gap-20 m-auto max-w-[1440px] w-full">
         {/* Showing X results */}
-        <div className="w-full flex flex-col sm:flex-row items-center sm:items-center justify-between mt-6 gap-3 mb-10">
-          <p className="text-sm text-gray-400">Showing all {displayed.length} results</p>
+        <div className="w-full flex flex-col sm:flex-row items-center sm:items-center justify-between mt-8 gap-3 mb-10">
+          <p className="text-lg text-black">Showing all {displayed.length} results</p>
 
           <div className="w-full sm:w-auto">
             <label className="sr-only" htmlFor="sort">
@@ -145,7 +141,7 @@ export default function ShopPage() {
         </div>
 
         {/* Reuse the same card layout from ProductGrid but with filtered data */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-10 w-full -mt-14">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-10 w-full -mt-14 mb-20">
           {displayed.map((product) => (
             <Link key={product.id} href={`/shop/${product.id}`} className="group cursor-pointer">
               <div className="relative overflow-hidden rounded-xl bg-gray-100 aspect-[4/5]">
@@ -213,8 +209,6 @@ export default function ShopPage() {
             </Link>
           ))}
         </div>
-
-        <Footer />
       </div>
     </div>
   );

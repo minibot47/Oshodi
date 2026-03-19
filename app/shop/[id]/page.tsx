@@ -37,9 +37,7 @@ export default function ProductDetail({ params }: ProductDetailProps) {
   ];
 
   return (
-    <main className="min-h-screen flex flex-col gap-3 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-14 pb-32">
-      <Nav />
-
+    <main className="min-h-screen flex flex-col gap-3 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-14 pb-20">
       {/* Hero banner */}
       <div className="relative w-full h-[280px] rounded-2xl overflow-hidden flex flex-col items-center justify-center">
         <img src={product.img} alt={product.name} className="absolute inset-0 w-full h-full object-cover object-top" />
@@ -175,9 +173,6 @@ export default function ProductDetail({ params }: ProductDetailProps) {
           </div>
         </div>
       )}
-
-      <Footer />
-
       {/* Fixed bottom bar */}
       <div className="fixed bottom-0 left-0 w-full bg-white border-t border-gray-100 shadow-lg z-50 px-4 sm:px-14 py-4 flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
         <div className="flex items-center gap-4">
