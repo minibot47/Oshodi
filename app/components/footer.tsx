@@ -4,9 +4,11 @@ export default function Footer(){
     return(
         <div className="w-full h-auto sm:h-[40vh] max-w-[1440px] m-auto text-black flex flex-col gap-2 mb-10 px-4 sm:px-6 lg:px-14">
             <div className="w-full h-full flex flex-col sm:flex-row">
-                <div className="w-full sm:w-[25%] p-5 flex flex-col gap-3">
-                    <img src="" alt="LOGO"/>
-                    <h2 className="text-2xl sm:text-3xl font-semibold">OSHODI</h2>
+                <div className="w-full sm:w-[25%] py-3 flex flex-col gap-3 ">
+                    <div className="flex">
+                        <img src="/icons/logo.png" alt="logo" className="w-3 h-3" />
+                        <h2 className="text-2xl sm:text-4xl font-semibold">vault</h2>
+                    </div>
                     <h3 className="text-sm">Make your clothing style cooler and more modern, only here.</h3>
                 </div>
                 <div className="w-full sm:w-[18%] p-5 flex flex-col gap-2">
@@ -37,7 +39,7 @@ export default function Footer(){
 
                 </div>
             </div>
-            <div className="border-t-[0.1px] border-gray-500 flex items-center justify-between py-3 px-3 ">
+            <div className="border-t-[0.1px] border-gray-100 flex items-center justify-between py-3 px-3 ">
                 <div className="w-full sm:w-[85%]  m-auto flex flex-col sm:flex-row gap-3 sm:items-center justify-between">
                     <div className="w-fit">
                         <h1>© 2026 Vault Theme by Oshodi. All rights reserved.</h1>

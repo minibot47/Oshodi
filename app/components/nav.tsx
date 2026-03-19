@@ -61,20 +61,20 @@ export default function Nav() {
     <>
       {/* Sticky nav wrapper — slides up/down smoothly */}
       <div
-        className="sticky top-0 z-50 w-full bg-white transition-transform duration-500 ease-in-out max-w-[1440px] m-auto"
+        className="sticky top-0 z-50 w-full  bg-white transition-transform duration-500 ease-in-out max-w-[1440px] m-auto"
         style={{ transform: visible ? "translateY(0)" : "translateY(-100%)" }}
       >
-        <nav className="w-full h-[85px]  text-black flex justify-between items-center max-w-[1440px] mx-auto px-3 sm:px-6 lg:px-14">
-          <Link href="/" className="flex items-center gap-2">
-            <img src="/logo.png" alt="logo" className="w-10 h-10" />
-            <h2>OSHODI</h2>
+        <nav className="w-full h-[85px]  text-black flex justify-between items-center max-w-[1440px] mx-auto px-3 sm:px-6 lg:px-10">
+          <Link href="/" className="flex gap-1">
+            <img src="/icons/logo.png" alt="logo" className="w-3 h-3" />
+            <h2 className="font-semibold text-2xl sm:text-3xl ">vault</h2>
           </Link>
 
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-12">
             {/* Desktop nav */}
             <div className="hidden md:flex items-center gap-10">
-              <Link href="/" className="text-sm font-light">HOME</Link>
-              <Link href="/shop" className="text-sm font-light">SHOP</Link>
+              <Link href="/" className="text-[12px] font-light">HOME</Link>
+              <Link href="/shop" className="text-[12px] font-light">SHOP</Link>
 
               <div
                 onMouseEnter={() => setCollectionsOpen(true)}
@@ -83,15 +83,16 @@ export default function Nav() {
               >
                 <span className="flex items-center justify-center gap-2 cursor-pointer text-sm font-light">
                   COLLECTIONS
-                  <span className="px-1.5 text-orange-400 bg-orange-200 border-none rounded-[16px] text-[9px]">NEW</span>
+                  <span className="px-1.5 text-orange-400 bg-orange-100 border-none rounded-[5px] text-[9px]">NEW</span>
+                  <img src="/icons/downarrow.png" alt="Arrow" className="w-2 h-1"/>
                 </span>
               </div>
             </div>
 
             {/* Cart */}
-            <button onClick={() => setOpen(true)} className="flex relative">
-              <img src="/icons/cart.png" alt="Cart" className="w-6 h-6" />
-              <div className="absolute -top-1 -right-1 bg-black text-white text-[9px] w-4 h-4 rounded-full flex items-center justify-center">{cartCount}</div>
+            <button onClick={() => setOpen(true)} className="flex relative mr-3">
+              <img src="/icons/cart.png" alt="Cart" className="w-4 h-4" />
+              <div className="absolute -top-1 -right-3  text-black text-[11px] w-3 h-3 rounded-full flex items-center justify-center">{cartCount}</div>
             </button>
 
             {/* Mobile menu button */}

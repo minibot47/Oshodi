@@ -61,7 +61,7 @@ export default function Testimonials() {
   const translateX = -(start * cardWidth) + visualOffset;
 
   return (
-    <div className="w-full mt-8 flex items-center gap-4">
+    <div className="w-full mt-8 flex items-center gap-4 ">
 
       <button
         onClick={() => slide("prev")}
@@ -84,17 +84,17 @@ export default function Testimonials() {
               className="flex-shrink-0 px-2 box-border"
               style={{ width: `${cardWidth}%` }} // 100% on mobile, 50% on desktop
             >
-              <div className="bg-[#1e2330] rounded-2xl p-8 flex flex-col gap-3">
-                <span className="text-3xl text-orange-500 leading-none">❝</span>
-                <h3 className="text-white font-bold text-lg">{t.name}</h3>
-                <p className="text-[#a0a8b8] text-sm leading-relaxed">{t.text}</p>
+              <div className="bg-[#1e2330] rounded-2xl p-9 flex flex-col gap-3">
+                <img src="/icons/apostrophe.webp" alt="Apostrophe " className="w-10 h-10"/>
+                <h3 className="text-white font-bold text-xl">{t.name}</h3>
+                <p className="text-[#a0a8b8] text-lg leading-relaxed">{t.text}</p>
               </div>
             </div>
           ))}
         </div>
       </div>
 
-      <div className=" hidden sm:flex flex-col gap-2 flex-shrink-0">
+      {/* <div className=" hidden sm:flex flex-col gap-2 flex-shrink-0">
         {testimonials.slice(0, maxStart + 1).map((_, i) => (
           <button
             key={i}
@@ -104,7 +104,7 @@ export default function Testimonials() {
             }`}
           />
         ))}
-      </div>
+      </div> */}
 
       <button
         onClick={() => slide("next")}

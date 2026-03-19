@@ -58,7 +58,7 @@ export default function CheckoutPage() {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Hero */}
-      <div className="relative w-full h-[280px] flex flex-col items-center justify-center overflow-hidden">
+      <div className="relative w-full h-[280px] mb-16 flex flex-col items-center justify-center overflow-hidden">
         <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1400&q=80" alt="checkout" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 flex flex-col items-center gap-2 text-white">
@@ -71,7 +71,7 @@ export default function CheckoutPage() {
       <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-14 py-8 sm:py-12 flex-1">
 
         {/* Coupon banner */}
-        <div className="border border-gray-200 rounded-lg p-4 mb-8 cursor-pointer flex items-center gap-3" onClick={() => setCouponOpen(!couponOpen)}>
+        <div className="border border-gray-200 rounded-lg p-4 mb-14 cursor-pointer flex items-center gap-3" onClick={() => setCouponOpen(!couponOpen)}>
           <div className="w-1 h-8 bg-blue-500 rounded-full flex-shrink-0" />
           <p className="text-sm text-gray-600">Have a coupon? <span className="text-blue-500 hover:underline">Click here to enter your code</span></p>
         </div>
@@ -83,11 +83,10 @@ export default function CheckoutPage() {
           </div>
         )}
 
-        {/* ↓ removed bg-red-500, added w-full to left column */}
-        <div className="flex flex-col lg:flex-row gap-16 items-start">
+        <div className="flex flex-col lg:flex-row gap-16 items-start mb-32">
 
           {/* Left — full width on mobile, flex-1 on desktop */}
-          <div className="w-full lg:flex-1 flex flex-col gap-5">
+          <div className="w-full  lg:flex-1 flex flex-col gap-5">
             <h2 className="text-xl font-bold text-gray-900">Billing details</h2>
 
             <div className="flex flex-col gap-4">
@@ -161,7 +160,7 @@ export default function CheckoutPage() {
           </div>
 
           {/* Right */}
-          <div className="w-full lg:w-[420px] flex-shrink-0 flex flex-col gap-4">
+          <div className="w-full sm:w-[420px] flex-shrink-0 flex flex-col gap-4">
             <h2 className="text-xl font-bold text-gray-900">Your order</h2>
             <div className="bg-gray-50 rounded-2xl p-6 flex flex-col gap-3">
               <div className="flex justify-between text-sm font-semibold text-gray-700 border-b border-gray-200 pb-3">

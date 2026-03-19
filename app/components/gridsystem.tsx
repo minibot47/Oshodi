@@ -60,7 +60,7 @@ const products = [
         {products.map((product) => (
           <div
             key={product.id}
-            className="relative rounded-2xl overflow-hidden cursor-pointer group aspect-[3/4]"
+            className="relative overflow-hidden cursor-pointer group w-full h-[400px]"
           >
   
             <img
@@ -70,12 +70,12 @@ const products = [
             />
   
             <div className="absolute bottom-0 left-0 w-full px-4 pb-5 pt-10 bg-gradient-to-t from-black/60 to-transparent text-white">
-              <p className="text-base font-medium mb-1">{product.name}</p>
+              <p className="text-xl font-medium mb-1">{product.name}</p>
               <div className="flex items-center gap-3">
                 {product.onSale && (
-                  <span className="text-sm line-through opacity-70">{product.originalPrice}</span>
+                  <span className="text-lg line-through opacity-70">{product.originalPrice}</span>
                 )}
-                <span className="text-base font-semibold underline underline-offset-2">{product.salePrice}</span>
+                <span className="text-lg font-semibold  underline-offset-2">{product.salePrice}</span>
               </div>
             </div>
   

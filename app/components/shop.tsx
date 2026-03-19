@@ -99,8 +99,8 @@ export default function ShopPage() {
             <div className="absolute inset-0 bg-black/40" aria-hidden="true" />
           </>
         )}
-        <div className="relative z-10 flex flex-col items-center gap-2 text-white">
-          <div className="flex gap-2 text-sm text-white/80">
+        <div className="relative z-10 flex flex-col items-center gap-5 text-white">
+          <div className="flex gap-2 text-sm font-light text-white/80">
             <Link href="/" className="hover:underline">Home</Link>
             <span>›</span>
             <Link href="/shop" className="hover:underline">Shop</Link>
@@ -111,15 +111,15 @@ export default function ShopPage() {
               </>
             )}
           </div>
-          <h2 className="text-4xl font-semibold">{meta ? meta.label : "Shop"}</h2>
+          <h2 className="text-5xl font-light">{meta ? meta.label : "Shop"}</h2>
         </div>
       </div>
 
       {/* Product grid — filtered */}
-      <div className="min-h-screen flex flex-col items-center px-4 sm:px-6 lg:px-16 gap-10 sm:gap-20 m-auto max-w-[1440px] w-full">
+      <div className="min-h-screen mt-20 flex flex-col items-center px-4 sm:px-6 lg:px-12 gap-10 sm:gap-20 m-auto max-w-[1440px] w-full">
         {/* Showing X results */}
         <div className="w-full flex flex-col sm:flex-row items-center sm:items-center justify-between mt-8 gap-3 mb-10">
-          <p className="text-lg text-black">Showing all {displayed.length} results</p>
+          <p className="text-sm text-black">Showing all {displayed.length} results</p>
 
           <div className="w-full sm:w-auto">
             <label className="sr-only" htmlFor="sort">
@@ -131,7 +131,7 @@ export default function ShopPage() {
               onChange={(e) => setSortKey(e.target.value as SortKey)}
               className="w-full sm:w-auto flex items-center gap-2 border border-gray-200 rounded-lg px-4 py-2 text-sm outline-none text-gray-500 cursor-pointer hover:border-gray-400 transition-colors bg-white"
             >
-              <option value="default">All</option>
+              <option value="default">Default Sorting</option>
               <option value="sale-first">Sale first</option>
               <option value="price-asc">Price: Low to High</option>
               <option value="price-desc">Price: High to Low</option>
@@ -144,7 +144,7 @@ export default function ShopPage() {
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-10 w-full -mt-14 mb-20">
           {displayed.map((product) => (
             <Link key={product.id} href={`/shop/${product.id}`} className="group cursor-pointer">
-              <div className="relative overflow-hidden rounded-xl bg-gray-100 aspect-[4/5]">
+              <div className="relative overflow-hidden  bg-gray-100 h-[400px] w-full">
                 {product.onSale && (
                   <div className="absolute top-3 left-3 z-10 bg-[#1a1a1a] text-white text-xs font-semibold px-3 py-1 rounded-sm tracking-wider">
                     SALE!
@@ -157,7 +157,7 @@ export default function ShopPage() {
                 />
               </div>
               <div className="mt-3 px-1">
-                <h3 className="text-base font-medium text-gray-900 mb-1">{product.name}</h3>
+                <h3 className="text-xl font-medium text-gray-900 mb-1">{product.name}</h3>
                 {/* Mobile: stacked price + button (no hover overlay) */}
                 <div className="sm:hidden">
                   <div className="flex items-center gap-2">
