@@ -14,8 +14,9 @@ const barlow = Barlow({
 });
 
 export const metadata: Metadata = {
-  title: "OSHODI",
+  title: "Online Store",
   description: "OSHODI-ECOMMERCE WEBSITE",
+  icons : "/icons/logo.png"
 };
 
 export default function RootLayout({
