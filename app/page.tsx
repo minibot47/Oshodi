@@ -212,7 +212,7 @@ export default function Home() {
       {/* FLASHSALE */}
       <div className="relative w-full h-fit sm:h-[70vh] lg:h-[85vh] rounded-[16px] mb-20 p-6 sm:p-14 overflow-hidden flex flex-col gap-10 items-start text-white">
         <div
-          className="absolute inset-0 bg-cover bg-center"
+          className="absolute inset-0 bg-fill bg-center"
           style={{ backgroundImage: `url(${flashSaleBg})` }}
           aria-hidden="true"
         />
