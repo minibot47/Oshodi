@@ -4,27 +4,9 @@ import Link from "next/link";
 import { useCart } from "../components/cartcontext";
 
 const collections = [
-  {
-    id: 1,
-    name: "Summer Wear",
-    desc: "Men & Women summer collection.",
-    img: "/images/collection1.webp",
-    href: "/shop?category=summer",
-  },
-  {
-    id: 2,
-    name: "Jackets",
-    desc: "Spring to Autumn.",
-    img: "/images/collection2.webp",
-    href: "/shop?category=jackets",
-  },
-  {
-    id: 3,
-    name: "Sweaters",
-    desc: "Keeping you warm all day.",
-    img: "/images/collection3.webp",
-    href: "/shop?category=sweaters",
-  },
+  { id: 1, name: "Summer Wear", desc: "Men & Women summer collection.", img: "/images/collection1.webp", href: "/shop?category=summer" },
+  { id: 2, name: "Jackets",     desc: "Spring to Autumn.",             img: "/images/collection2.webp", href: "/shop?category=jackets" },
+  { id: 3, name: "Sweaters",    desc: "Keeping you warm all day.",      img: "/images/collection3.webp", href: "/shop?category=sweaters" },
 ];
 
 export default function Nav() {
@@ -34,22 +16,31 @@ export default function Nav() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileCollectionsOpen, setMobileCollectionsOpen] = useState(false);
 
-  // Scroll hide/show
   const [visible, setVisible] = useState(true);
+  const [scrolled, setScrolled] = useState(false); // true when NOT at the very top
   const lastScrollY = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
       const currentY = window.scrollY;
-      // Scrolling up → show. Scrolling down → hide.
-      if (currentY < lastScrollY.current || currentY < 80) {
+      const atBottom = window.innerHeight + currentY >= document.body.scrollHeight - 10;
+
+      // Show border when scrolled away from top
+      setScrolled(currentY > 10);
+
+      // Always show at top or bottom of page
+      if (currentY < 10 || atBottom) {
+        setVisible(true);
+      } else if (currentY < lastScrollY.current) {
+        // Scrolling up → show
         setVisible(true);
       } else {
+        // Scrolling down → hide
         setVisible(false);
-        // Close dropdowns when hiding
         setCollectionsOpen(false);
         setMobileMenuOpen(false);
       }
+
       lastScrollY.current = currentY;
     };
 
@@ -59,43 +50,40 @@ export default function Nav() {
 
   return (
     <>
-      {/* Sticky nav wrapper — slides up/down smoothly */}
       <div
-        className="sticky top-0 z-50 w-full  bg-white transition-transform duration-500 ease-in-out max-w-[1440px] m-auto"
+        className={`sticky top-0 z-50 w-full bg-white transition-all duration-500 ease-in-out m-auto ${
+          scrolled ? "border-b border-black/10" : "border-b border-transparent"
+        }`}
         style={{ transform: visible ? "translateY(0)" : "translateY(-100%)" }}
       >
-        <nav className="w-full h-[85px]  text-black flex justify-between items-center max-w-[1440px] mx-auto px-3 sm:px-6 lg:px-10">
+        <nav className="w-full h-[85px] text-black flex justify-between items-center max-w-[1440px] mx-auto px-3 sm:px-6 lg:px-10">
           <Link href="/" className="flex items-end gap-1">
             <span className="text-orange-500 text-lg sm:text-2xl font-bold mb-1">✳</span>
             <h2 className="font-medium text-2xl sm:text-3xl">vault</h2>
           </Link>
 
           <div className="flex items-center gap-12">
-            {/* Desktop nav */}
             <div className="hidden md:flex items-center gap-10">
-              <Link href="/" className="text-sm font-semibold">HOME</Link>
-              <Link href="/shop" className="text-sm font-semibold">SHOP</Link>
-
+              <Link href="/" className="text-sm">HOME</Link>
+              <Link href="/shop" className="text-sm">SHOP</Link>
               <div
                 onMouseEnter={() => setCollectionsOpen(true)}
                 onMouseLeave={() => setCollectionsOpen(false)}
                 className="h-[85px] flex items-center"
               >
-                <span className="flex items-center justify-center gap-2 cursor-pointer text-sm font-semibold">
+                <span className="flex items-center justify-center gap-2 cursor-pointer text-sm">
                   COLLECTIONS
                   <span className="px-1.5 text-orange-400 bg-orange-100 border-none rounded-[5px] text-[9px]">NEW</span>
-                  <img src="/icons/downarrow.png" alt="Arrow" className="w-2 h-1"/>
+                  <img src="/icons/downarrow.png" alt="Arrow" className="w-2 h-1" />
                 </span>
               </div>
             </div>
 
-            {/* Cart */}
             <button onClick={() => setOpen(true)} className="flex relative -mr-6 sm:mr-3">
               <img src="/icons/cart.png" alt="Cart" className="w-4 h-4" />
-              <div className="absolute -top-1 -right-3  text-black text-[11px] w-3 h-3 rounded-full flex items-center justify-center">{cartCount}</div>
+              <div className="absolute -top-1 -right-3 text-black text-[11px] w-3 h-3 rounded-full flex items-center justify-center">{cartCount}</div>
             </button>
 
-            {/* Mobile menu button */}
             <button
               className="md:hidden px-3 py-2 rounded-lg border border-gray-200 hover:bg-gray-50 transition-colors text-sm font-medium"
               onClick={() => { setMobileMenuOpen((v) => !v); setMobileCollectionsOpen(false); }}
@@ -106,7 +94,6 @@ export default function Nav() {
             </button>
           </div>
 
-          {/* Desktop collections dropdown */}
           {collectionsOpen && (
             <div
               className="hidden md:block fixed top-[85px] left-0 w-full z-50 px-14 pb-6 pt-6 bg-white shadow-2xl border-t border-gray-100"
@@ -115,20 +102,13 @@ export default function Nav() {
             >
               <div className="max-w-[1440px] mx-auto grid grid-cols-3 gap-4 pb-2">
                 {collections.map((col) => (
-                  <Link
-                    key={col.id}
-                    href={col.href}
-                    className="group relative overflow-hidden rounded-xl w-full h-[280px] block"
-                    onClick={() => setCollectionsOpen(false)}
-                  >
+                  <Link key={col.id} href={col.href} className="group relative overflow-hidden rounded-xl w-full h-[280px] block" onClick={() => setCollectionsOpen(false)}>
                     <img src={col.img} alt={col.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-300" />
-                    <div className="absolute flex flex-col  bottom-0 left-0 p-4 text-white">
+                    <div className="absolute flex flex-col bottom-0 left-0 p-4 text-white">
                       <h3 className="text-2xl font-medium">{col.name}</h3>
                       <p className="text-lg font-extralight opacity-90 mb-4">{col.desc}</p>
-                      <div className="flex items-center gap-2 bg-[#1a1a1a] text-white text-lg font-semibold px-5 py-3 rounded-full w-fit">
-                        See Products  →
-                      </div>
+                      <div className="flex items-center gap-2 bg-[#1a1a1a] text-white text-lg font-semibold px-5 py-3 rounded-full w-fit">See Products →</div>
                     </div>
                   </Link>
                 ))}
@@ -136,37 +116,22 @@ export default function Nav() {
             </div>
           )}
 
-          {/* Mobile menu */}
           {mobileMenuOpen && (
-            <div
-              id="mobile-menu"
-              className="md:hidden fixed top-[85px] left-0 w-full z-50 bg-white shadow-2xl border-t border-gray-100"
-            >
+            <div id="mobile-menu" className="md:hidden fixed top-[85px] left-0 w-full z-50 bg-white shadow-2xl border-t border-gray-100">
               <div className="px-4 py-4 flex flex-col gap-4">
                 <Link href="/" className="text-sm font-light text-gray-900 hover:underline underline-offset-4" onClick={() => setMobileMenuOpen(false)}>HOME</Link>
                 <Link href="/shop" className="text-sm font-light text-gray-900 hover:underline underline-offset-4" onClick={() => setMobileMenuOpen(false)}>SHOP</Link>
-
-                <button
-                  className="w-full flex items-center justify-between text-left text-sm font-semibold text-gray-900"
-                  onClick={() => setMobileCollectionsOpen((v) => !v)}
-                  type="button"
-                >
+                <button className="w-full flex items-center justify-between text-left" onClick={() => setMobileCollectionsOpen((v) => !v)} type="button">
                   <span className="flex items-center gap-2 text-sm font-light">
                     COLLECTIONS
                     <span className="px-1.5 text-orange-400 bg-orange-200 border-none rounded-[16px] text-[9px]">NEW</span>
                   </span>
                   <span className="text-gray-500">{mobileCollectionsOpen ? "−" : "+"}</span>
                 </button>
-
                 {mobileCollectionsOpen && (
                   <div className="grid grid-cols-1 gap-2 pb-2">
                     {collections.map((col) => (
-                      <Link
-                        key={col.id}
-                        href={col.href}
-                        className="p-3 rounded-lg border border-gray-100 hover:bg-gray-50 transition-colors text-sm font-medium"
-                        onClick={() => setMobileMenuOpen(false)}
-                      >
+                      <Link key={col.id} href={col.href} className="p-3 rounded-lg border border-gray-100 hover:bg-gray-50 transition-colors text-sm font-medium" onClick={() => setMobileMenuOpen(false)}>
                         {col.name}
                       </Link>
                     ))}
