@@ -12,30 +12,30 @@ export default function Footer(){
                     <h3 className="text-sm">Make your clothing style cooler and more modern, only here.</h3>
                 </div>
                 <div className="w-full sm:w-[18%] p-5 flex flex-col gap-2">
-                    <h2 className="text-xl sm:text-xl mb-2 font-medium">Get Help</h2>
+                    <h2 className="text-xl sm:text-xl mb-3 font-medium">Get Help</h2>
                     <Link href="" className="text-sm">Delivery</Link>
                     <Link href="" className="text-sm">Returns</Link>
                     <Link href="" className="text-sm">Payment Options</Link>
                     <Link href="" className="text-sm">Contact Us</Link>
                 </div>
                 <div className="w-full sm:w-[18%] p-5 flex flex-col gap-2">
-                    <h2 className="text-xl sm:text-xl mb-2 font-medium">About Vault</h2>
+                    <h2 className="text-xl sm:text-xl mb-3 font-medium">About Vault</h2>
                     <Link href="" className="text-sm">News</Link>
                     <Link href="" className="text-sm">Careers</Link>
                     <Link href="" className="text-sm">Investors</Link>
                     <Link href="" className="text-sm">Sustainability</Link>
                 </div>
                 <div className="w-full sm:w-[20%] p-5 flex flex-col gap-2">
-                    <h2 className="text-xl sm:text-xl mb-2 font-medium">Social Media</h2>
+                    <h2 className="text-xl sm:text-xl mb-3 font-medium">Social Media</h2>
                     <Link href="" className="text-sm">Instagram</Link>
                     <Link href="" className="text-sm">Facebook</Link>
                     <Link href="" className="text-sm">Linkedin</Link>
                     <Link href="" className="text-sm">Twitter</Link>
                 </div>
                 <div className="w-full sm:w-[20%] p-5 flex flex-col gap-2">
-                    <h2 className="text-xl sm:text-xl mb-2 font-medium">Contact</h2>
-                    <Link href="" className="text-sm">toludairo534@gmail.com</Link>
-                    <Link href="" className="text-sm">Address of the company</Link>
+                    <h2 className="text-xl sm:text-xl mb-3 font-medium">Contact</h2>
+                    <Link href="" className="text-sm">Helo@vault.com</Link>
+                    <Link href="" className="text-sm">2020 Massachusetts Ave NW, Washington, DC 20036</Link>
 
                 </div>
             </div>

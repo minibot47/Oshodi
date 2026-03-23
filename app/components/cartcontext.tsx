@@ -1,4 +1,4 @@
-// context/CartContext.jsx
+// app/components/cartcontext.tsx
 "use client";
 import { createContext, useContext, useState } from "react";
 import type { Dispatch, ReactNode, SetStateAction } from "react";
@@ -6,7 +6,7 @@ import type { Dispatch, ReactNode, SetStateAction } from "react";
 export type Product = {
   id: number;
   name: string;
-  salePrice: string; // formatted like "55.00 $"
+  salePrice: string;
   img: string;
   originalPrice?: string | null;
   category?: string;
@@ -20,6 +20,7 @@ type CartContextValue = {
   items: CartItem[];
   addToCart: (product: Product, qty?: number) => void;
   removeFromCart: (id: number) => void;
+  clearCart: () => void; // ← added
   open: boolean;
   setOpen: Dispatch<SetStateAction<boolean>>;
   total: number;
@@ -39,10 +40,12 @@ export function CartProvider({ children }: { children: ReactNode }) {
       }
       return [...prev, { ...product, qty }];
     });
-    setOpen(true); // open drawer when item added
+    setOpen(true);
   };
 
   const removeFromCart = (id: number) => setItems((prev) => prev.filter((i) => i.id !== id));
+
+  const clearCart = () => setItems([]); 
 
   const total = items.reduce((sum, i) => {
     const price = parseFloat(i.salePrice.replace(",", ".").replace(" $", ""));
@@ -50,7 +53,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   }, 0);
 
   return (
-    <CartContext.Provider value={{ items, addToCart, removeFromCart, open, setOpen, total }}>
+    <CartContext.Provider value={{ items, addToCart, removeFromCart, clearCart, open, setOpen, total }}>
       {children}
     </CartContext.Provider>
   );

@@ -56,7 +56,7 @@ export default function Nav() {
         }`}
         style={{ transform: visible ? "translateY(0)" : "translateY(-100%)" }}
       >
-        <nav className="w-full h-[85px] text-black flex justify-between items-center max-w-[1440px] mx-auto px-3 sm:px-6 lg:px-10">
+        <nav className="w-full h-[80px] text-black flex justify-between items-center max-w-[1440px] mx-auto px-3 sm:px-6 lg:px-10">
           <Link href="/" className="flex items-end gap-1">
             <span className="text-orange-500 text-lg sm:text-2xl font-bold mb-1">✳</span>
             <h2 className="font-medium text-2xl sm:text-3xl">vault</h2>
