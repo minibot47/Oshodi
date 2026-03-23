@@ -6,6 +6,8 @@ import { useRouter } from "next/navigation";
 import { useCart } from "../components/cartcontext";
 import FlutterwaveButton from "./flutterwavebutton";
 
+console.log(process.env.NEXT_PUBLIC_FLUTTERWAVE_PUBLIC_KEY);
+
 type PaymentOptionProps = {
   id: string;
   label: string;

@@ -8,7 +8,7 @@ import Nav from "./components/nav";
 import Footer from "./components/footer";
 import { DM_Sans } from "next/font/google";
 
-console.log(process.env.NEXT_PUBLIC_FLUTTERWAVE_PUBLIC_KEY);
+
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
