@@ -1,4 +1,3 @@
-// app/order-success/page.tsx
 import Link from "next/link";
 
 export default function OrderSuccess() {
