@@ -57,10 +57,10 @@ export default function Home() {
       <div className="mb-5 sm:mb-32">
         <h1 className="lg sm:text-xl mb-5 text-[#556174]">Our Philosophy</h1>
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
-          <div className="text-3xl  sm:text-4xl lg:text-5xl w-full lg:w-[65%]">
+          <div className="text-3xl  sm:text-4xl lg:text-5xl w-full lg:w-[70%]">
             Embrace discovery , ignite passion, redefine your online journey
           </div>
-          <Link href="/shop" className="py-3 px-8 border-[0.1px] border-black rounded-full flex gap-2 items-center ">See the Collection <img src="/icons/arrow.png" alt="Arrow" className="w-8 h-8"/></Link>
+          <Link href="/shop" className="py-3 px-7 border-[0.1px] border-black rounded-full flex gap-2 items-center ">See the Collection <img src="/icons/arrow.png" alt="Arrow" className="w-8 h-8"/></Link>
         </div>
         <div className="w-full flex flex-col lg:flex-row lg:items-stretch gap-5 lg:gap-0 h-auto lg:h-[556px] mt-1 sm:mt-10">
           <div className="w-full lg:w-[38%] h-[45vh] lg:h-full">

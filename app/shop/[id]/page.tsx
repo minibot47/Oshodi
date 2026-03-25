@@ -39,8 +39,8 @@ export default function ProductDetail({ params }: ProductDetailProps) {
   return (
     <main className="min-h-screen flex flex-col gap-3 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-14 pb-32">
       {/* Hero banner */}
-      <div className="relative w-full h-[280px] rounded-2xl overflow-hidden flex flex-col items-center justify-center">
-        <img src={product.img} alt={product.name} className="absolute inset-0 w-full h-full object-cover object-top" />
+      <div className="relative w-full h-[280px]  overflow-hidden flex flex-col items-center justify-center">
+        <img src='/images/defaultstore.webp' alt={product.name} className="absolute inset-0 w-full h-full object-cover object-top" />
         <div className="absolute inset-0 bg-black/30" />
         <div className="relative z-10 flex flex-col items-center gap-2">
           <p className="text-white/80 text-sm">
