@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation";
 import { useCart } from "../components/cartcontext";
 import FlutterwaveButton from "./flutterwavebutton";
 
-console.log(process.env.NEXT_PUBLIC_FLUTTERWAVE_PUBLIC_KEY);
 
 type PaymentOptionProps = {
   id: string;
@@ -57,7 +56,7 @@ export default function CheckoutPage() {
     <div className="min-h-screen flex flex-col">
       {/* Hero */}
       <div className="relative w-full h-[280px] mb-16 flex flex-col items-center justify-center overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1400&q=80" alt="checkout" className="absolute inset-0 w-full h-full object-cover" />
+        <img src="/images/defaultstore.webp" alt="checkout" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 flex flex-col items-center gap-2 text-white">
           <p className="text-sm text-white/70"><Link href="/" className="hover:underline">Home</Link> › Checkout</p>

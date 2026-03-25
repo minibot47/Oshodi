@@ -37,7 +37,7 @@ export default function ProductDetail({ params }: ProductDetailProps) {
   ];
 
   return (
-    <main className="min-h-screen flex flex-col gap-3 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-14 pb-20">
+    <main className="min-h-screen flex flex-col gap-3 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-14 pb-32">
       {/* Hero banner */}
       <div className="relative w-full h-[280px] rounded-2xl overflow-hidden flex flex-col items-center justify-center">
         <img src={product.img} alt={product.name} className="absolute inset-0 w-full h-full object-cover object-top" />
@@ -56,7 +56,7 @@ export default function ProductDetail({ params }: ProductDetailProps) {
       <div className="flex flex-col lg:flex-row gap-16 mt-10 mb-10">
 
         {/* Left — image gallery */}
-        <div className="w-full lg:w-[55%] flex flex-col gap-4">
+        <div className="w-full lg:w-[60%] flex flex-col gap-4">
           {/* Main image */}
           <div className="relative rounded-2xl overflow-hidden bg-gray-100">
             {product.onSale && (
@@ -67,7 +67,7 @@ export default function ProductDetail({ params }: ProductDetailProps) {
             <img
               src={gallery[activeImg]}
               alt={product.name}
-              className="w-full h-[320px] sm:h-[420px] lg:h-[500px] object-cover transition-all duration-500"
+              className="w-full h-[320px] sm:h-[420px] lg:h-[820px] object-cover transition-all duration-500"
             />
           </div>
 
@@ -77,7 +77,7 @@ export default function ProductDetail({ params }: ProductDetailProps) {
               <button
                 key={i}
                 onClick={() => setActiveImg(i)}
-                className={`w-[96px] h-[80px] sm:w-[180px] sm:h-[120px] rounded-xl overflow-hidden border-2 transition-all duration-200 ${
+                className={`w-[96px] h-[80px] sm:w-[190px] sm:h-[190px] rounded-xl overflow-hidden border-2 transition-all duration-200 ${
                   activeImg === i ? "border-black" : "border-transparent opacity-60 hover:opacity-100"
                 }`}
               >
@@ -88,7 +88,7 @@ export default function ProductDetail({ params }: ProductDetailProps) {
         </div>
 
         {/* Right — product info */}
-        <div className="w-full lg:w-[45%] flex flex-col gap-5 pt-2">
+        <div className="w-full lg:w-[40%] flex flex-col gap-5 pt-2">
           <p className="text-sm text-gray-400">
             Home / {product.category} / {product.name}
           </p>
@@ -124,8 +124,8 @@ export default function ProductDetail({ params }: ProductDetailProps) {
       </div>
 
       {/* Tabs — Description / Additional Info / Reviews */}
-      <div className="mt-6 mb-10">
-        <div className="flex flex-col sm:flex-row sm:gap-10 gap-4 border-b border-gray-200 mb-8">
+      <div className="mt-16 mb-28">
+        <div className="flex flex-col items-center justify-center sm:flex-row sm:gap-10 gap-4 border-b border-gray-200 mb-8 ">
           {["Description", "Additional information", "Reviews (0)"].map((tab, i) => (
             <button
               key={tab}
@@ -149,7 +149,7 @@ export default function ProductDetail({ params }: ProductDetailProps) {
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
             {related.map((p) => (
               <Link key={p.id} href={`/shop/${p.id}`} className="group cursor-pointer">
-                <div className="relative overflow-hidden rounded-xl bg-gray-100 aspect-[3/4]">
+                <div className="relative overflow-hidden rounded-xl bg-gray-100 h-[390px] w-full">
                   {p.onSale && (
                     <div className="absolute top-3 left-3 z-10 bg-[#1a1a1a] text-white text-xs font-semibold px-3 py-1 rounded-sm tracking-wider">
                       SALE!

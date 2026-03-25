@@ -78,7 +78,7 @@ export default function ShopPage() {
   }, [filtered, sortKey]);
 
   return (
-    <div className="min-h-screen flex flex-col items-center gap-3 m-auto">
+    <div className="min-h-screen flex flex-col items-center gap-3 pb-32 m-auto">
       {/* Hero — always the same image */}
       <div className="relative w-full h-[30vh] flex flex-col gap-3 items-center justify-center overflow-hidden">
         <div
