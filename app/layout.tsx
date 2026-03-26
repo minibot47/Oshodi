@@ -17,8 +17,21 @@ const dmSans = DM_Sans({
 
 export const metadata: Metadata = {
   title: "Oshodi",
-  description: "OSHODI-ECOMMERCE WEBSITE",
-  icons : "/icons/logo.png"
+  description: "Shop the latest fashion trends at Oshodi. Free shipping on all orders. Discover curated collections of clothing, jackets, sweaters and more.",
+  icons: "/icons/icon.png",
+  openGraph: {
+    title: "Oshodi | Style Finds You Here",
+    description: "Shop the latest fashion trends at Oshodi. Free shipping on all orders.",
+    url: "https://oshodimvp.vercel.app/",
+    siteName: "Oshodi",
+    images: [
+      {
+        url: "/images/meta.png",
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
 };
 
 export default function RootLayout({

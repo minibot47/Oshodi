@@ -5,11 +5,10 @@ export default function Footer(){
         <div className="w-full h-auto sm:h-[40vh] max-w-[1440px] m-auto text-black flex flex-col gap-1 mb-5 px-4 sm:px-6 lg:px-14">
             <div className="w-full h-full flex flex-col  sm:flex-row">
                 <div className="w-full sm:w-[25%] py-3 flex flex-col gap-3 ">
-                    <Link href="/" className="flex items-end gap-1">
-                        <span className="text-orange-500 text-lg sm:text-2xl font-bold mb-1">✳</span>
-                        <h2 className="font-medium text-2xl sm:text-4xl">Oshodi</h2>
-                    </Link>
-                    <h3 className="text-sm">Your trusted destination for tech and home appliances, delivered to your door.</h3>
+                <Link href="/" className="flex items-end gap-1">
+                    <img src="/icons/oshodi.png" alt="LOGO" className="w-[150px] h-[30px]" />
+                </Link>
+                    <h3 className="text-sm w-[90%]">Your trusted destination for tech and home appliances, delivered to your door.</h3>
                 </div>
                 <div className="w-full sm:w-[18%] p-5 flex flex-col gap-2">
                     <h2 className="text-xl sm:text-xl mb-3 font-medium">Get Help</h2>

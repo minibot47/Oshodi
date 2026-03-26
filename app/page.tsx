@@ -42,15 +42,17 @@ export default function Home() {
       {/* BRANDS */}
       <div className="mt-10 mb-28  ">
         <h2 className="text-lg sm:text-xl mb-5 text-[#6b778a] ">Brands</h2>
-        <div className="w-full px-2 m-auto flex flex-wrap items-center justify-evenly ">
-          <img src="/brandicons/brand1.png" alt="brand1" className="w-[40px] h-[35px] sm:w-[130px] sm:h-[90px]" />
-          <img src="/brandicons/brand2.png" alt="brand2" className="w-[40px] h-[35px] sm:w-[100px] sm:h-[100px]"/>
-          <img src="/brandicons/brand3.png" alt="brand3" className="w-[40px] h-[35px] sm:w-[100px] sm:h-[90px]"/>
-          <img src="/brandicons/brand4.png" alt="brand4" className="w-[40px] h-[35px] sm:w-[130px] sm:h-[70px]"/>
-          <img src="/brandicons/brand5.png" alt="brand5" className="w-[40px] h-[35px] sm:w-[140px] sm:h-[70px]"/>
-          <img src="/brandicons/brand6.png" alt="brand6" className="w-[40px] h-[35px] sm:w-[100px] sm:h-[90px]"/>
-          <img src="/brandicons/brand7.png" alt="brand7" className="w-[40px] h-[35px] hidden lg:flex sm:w-[100px] sm:h-[90px]"/>
-          <img src="/brandicons/brand8.png" alt="brand8" className="w-[40px] h-[35px] hidden lg:flex sm:w-[140px] sm:h-[50px]"/>
+        <div className="w-full px-2 m-auto flex flex-wrap items-center justify-evenly gap-6">
+          {["brand1","brand3","brand4","brand5","brand6","brand7","brand8"].map((brand, i) => (
+            <img
+              key={brand}
+              src={`/brandicons/${brand}.png`}
+              alt={brand}
+              className={`object-contain w-[60px] h-[40px] sm:w-[100px] sm:h-[80px] lg:w-[130px] lg:h-[90px] ${
+                i >= 6 ? "hidden lg:block" : ""
+              }`}
+            />
+          ))}
         </div>
       </div>
 

@@ -19,7 +19,7 @@ export default function CartPage() {
       {/* Hero */}
       <div className="relative w-full h-[280px] flex flex-col items-center justify-center overflow-hidden">
         <img
-          src="/images/defaultstore.webp"
+          src="/images/elitebook.jpg"
           alt="cart"
           className="absolute inset-0 w-full h-full object-cover"
         />
