@@ -26,11 +26,17 @@ export const metadata: Metadata = {
     siteName: "Oshodi",
     images: [
       {
-        url: "/images/meta.png",
+        url: "https://oshodimvp.vercel.app/images/meta.png",
         width: 1200,
         height: 630,
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Oshodi | Style Finds You Here",
+    description: "Shop the latest fashion trends at Oshodi. Free shipping on all orders.",
+    images: ["https://oshodimvp.vercel.app/images/meta.png"],
   },
 };
 
