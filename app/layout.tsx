@@ -27,8 +27,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "https://oshodimvp.vercel.app/images/meta.jpeg",
-        width: 1000,
-        height: 680,
+        width: 1200,
+        height: 630,
       },
     ],
   },
