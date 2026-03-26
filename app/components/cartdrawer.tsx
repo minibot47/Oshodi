@@ -72,7 +72,7 @@ export default function CartDrawer() {
           <div className="flex items-center justify-between text-sm">
             <span className="text-white/70">Subtotal:</span>
             <span className="font-semibold text-base">
-              {total.toFixed(2).replace(".", ",")} $
+              ₦{total.toLocaleString("en-NG")}
             </span>
           </div>
           <div className="flex gap-3">

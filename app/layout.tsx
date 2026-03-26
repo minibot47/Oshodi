@@ -16,7 +16,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Online Store",
+  title: "Oshodi",
   description: "OSHODI-ECOMMERCE WEBSITE",
   icons : "/icons/logo.png"
 };

@@ -17,9 +17,12 @@ export default function ProductDetail({ params }: ProductDetailProps) {
   const [qty, setQty] = useState(1);
   const { addToCart } = useCart();
   const [activeImg, setActiveImg] = useState(0);
+  const [activeTab, setActiveTab] = useState(0);
 
   // Related products = same category, exclude current
-  const related = products.filter((p) => p.category === product?.category && p.id !== product?.id).slice(0, 4);
+  const related = products
+    .filter((p) => p.category === product?.category && p.id !== product?.id)
+    .slice(0, 4);
 
   if (!product) {
     return (
@@ -29,26 +32,23 @@ export default function ProductDetail({ params }: ProductDetailProps) {
     );
   }
 
-  // Multiple gallery images — using different Unsplash crops of the same product
-  const gallery = [
-    product.img,
-    product.img.replace("w=800", "w=801"), // slightly different crop trick
-    product.img.replace("w=800", "w=802"),
-  ];
+  const gallery = [product.img];
+
+  const tabs = ["Description", "Additional information", "Reviews (0)"];
 
   return (
     <main className="min-h-screen flex flex-col gap-3 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-14 pb-32">
       {/* Hero banner */}
-      <div className="relative w-full h-[280px]  overflow-hidden flex flex-col items-center justify-center">
-        <img src='/images/defaultstore.webp' alt={product.name} className="absolute inset-0 w-full h-full object-cover object-top" />
+      <div className="relative w-full h-[280px] overflow-hidden flex flex-col items-center justify-center">
+        <img src="/images/defaultstore.webp" alt={product.name} className="absolute inset-0 w-full h-full object-cover object-top" />
         <div className="absolute inset-0 bg-black/30" />
         <div className="relative z-10 flex flex-col items-center gap-2">
           <p className="text-white/80 text-sm">
             <Link href="/" className="hover:underline">Home</Link>{" / "}
-            <Link href="/shop" className="hover:underline">{product.category}</Link>{" / "}
+            <Link href={`/shop?category=${product.category}`} className="hover:underline">{product.category}</Link>{" / "}
             <span>{product.name}</span>
           </p>
-          <h1 className="text-white text-5xl font-semibold">{product.name}</h1>
+          <h1 className="text-white text-5xl font-semibold text-center px-4">{product.name}</h1>
         </div>
       </div>
 
@@ -57,11 +57,15 @@ export default function ProductDetail({ params }: ProductDetailProps) {
 
         {/* Left — image gallery */}
         <div className="w-full lg:w-[60%] flex flex-col gap-4">
-          {/* Main image */}
           <div className="relative rounded-2xl overflow-hidden bg-gray-100">
             {product.onSale && (
               <div className="absolute top-4 left-4 z-10 bg-[#1a1a1a] text-white text-xs font-semibold px-3 py-1 rounded-sm tracking-wider">
                 SALE!
+              </div>
+            )}
+            {product.tag === "NEW" && !product.onSale && (
+              <div className="absolute top-4 left-4 z-10 bg-orange-500 text-white text-xs font-semibold px-3 py-1 rounded-sm tracking-wider">
+                NEW
               </div>
             )}
             <img
@@ -69,21 +73,6 @@ export default function ProductDetail({ params }: ProductDetailProps) {
               alt={product.name}
               className="w-full h-[320px] sm:h-[420px] lg:h-[820px] object-cover transition-all duration-500"
             />
-          </div>
-
-          {/* Thumbnails */}
-          <div className="flex flex-wrap gap-3">
-            {gallery.map((img, i) => (
-              <button
-                key={i}
-                onClick={() => setActiveImg(i)}
-                className={`w-[96px] h-[80px] sm:w-[190px] sm:h-[190px] rounded-xl overflow-hidden border-2 transition-all duration-200 ${
-                  activeImg === i ? "border-black" : "border-transparent opacity-60 hover:opacity-100"
-                }`}
-              >
-                <img src={img} alt={`view ${i + 1}`} className="w-full h-full object-cover" />
-              </button>
-            ))}
           </div>
         </div>
 
@@ -109,7 +98,10 @@ export default function ProductDetail({ params }: ProductDetailProps) {
               <span className="text-base w-4 text-center">{qty}</span>
               <button onClick={() => setQty((q) => q + 1)} className="text-lg text-gray-500 hover:text-black transition-colors">+</button>
             </div>
-            <button className="flex-1 bg-[#1a1a1a] text-white rounded-full py-3 text-sm font-semibold hover:bg-black transition-colors" onClick={() => addToCart(product, qty)}>
+            <button
+              className="flex-1 bg-[#1a1a1a] text-white rounded-full py-3 text-sm font-semibold hover:bg-black transition-colors"
+              onClick={() => addToCart(product, qty)}
+            >
               Add to cart
             </button>
           </div>
@@ -123,14 +115,15 @@ export default function ProductDetail({ params }: ProductDetailProps) {
         </div>
       </div>
 
-      {/* Tabs — Description / Additional Info / Reviews */}
+      {/* Tabs */}
       <div className="mt-16 mb-28">
-        <div className="flex flex-col items-center justify-center sm:flex-row sm:gap-10 gap-4 border-b border-gray-200 mb-8 ">
-          {["Description", "Additional information", "Reviews (0)"].map((tab, i) => (
+        <div className="flex flex-col items-center justify-center sm:flex-row sm:gap-10 gap-4 border-b border-gray-200 mb-8">
+          {tabs.map((tab, i) => (
             <button
               key={tab}
+              onClick={() => setActiveTab(i)}
               className={`pb-3 text-sm font-medium transition-colors ${
-                i === 0
+                activeTab === i
                   ? "border-b-2 border-black text-black"
                   : "text-gray-400 hover:text-black"
               }`}
@@ -139,7 +132,37 @@ export default function ProductDetail({ params }: ProductDetailProps) {
             </button>
           ))}
         </div>
-        <p className="text-gray-600 leading-relaxed max-w-3xl text-[15px]">{product.desc}</p>
+
+        {/* Description tab */}
+        {activeTab === 0 && (
+          <p className="text-gray-600 leading-relaxed max-w-3xl text-[15px]">{product.desc}</p>
+        )}
+
+        {/* Additional information tab */}
+        {activeTab === 1 && (
+          <div className="max-w-3xl">
+            {product.additionalInfo ? (
+              <div className="flex flex-col gap-3">
+                {product.additionalInfo.split("|").map((item, i) => {
+                  const [label, value] = item.split(":").map((s) => s.trim());
+                  return (
+                    <div key={i} className="flex gap-4 py-3 border-b border-gray-100 text-sm">
+                      <span className="w-[180px] font-semibold text-gray-700 flex-shrink-0">{label}</span>
+                      <span className="text-gray-500">{value}</span>
+                    </div>
+                  );
+                })}
+              </div>
+            ) : (
+              <p className="text-gray-400 text-sm">No additional information available.</p>
+            )}
+          </div>
+        )}
+
+        {/* Reviews tab */}
+        {activeTab === 2 && (
+          <p className="text-gray-400 text-sm">No reviews yet. Be the first to review this product.</p>
+        )}
       </div>
 
       {/* Related products */}
@@ -153,6 +176,11 @@ export default function ProductDetail({ params }: ProductDetailProps) {
                   {p.onSale && (
                     <div className="absolute top-3 left-3 z-10 bg-[#1a1a1a] text-white text-xs font-semibold px-3 py-1 rounded-sm tracking-wider">
                       SALE!
+                    </div>
+                  )}
+                  {p.tag === "NEW" && !p.onSale && (
+                    <div className="absolute top-3 left-3 z-10 bg-orange-500 text-white text-xs font-semibold px-3 py-1 rounded-sm tracking-wider">
+                      NEW
                     </div>
                   )}
                   <img
@@ -173,6 +201,7 @@ export default function ProductDetail({ params }: ProductDetailProps) {
           </div>
         </div>
       )}
+
       {/* Fixed bottom bar */}
       <div className="fixed bottom-0 left-0 w-full bg-white border-t border-gray-100 shadow-lg z-50 px-4 sm:px-14 py-4 flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
         <div className="flex items-center gap-4">
@@ -185,7 +214,10 @@ export default function ProductDetail({ params }: ProductDetailProps) {
             <span className="text-base w-4 text-center">{qty}</span>
             <button onClick={() => setQty((q) => q + 1)} className="text-lg text-gray-500 hover:text-black">+</button>
           </div>
-          <button onClick={() => addToCart(product, qty)} className="bg-[#1a1a1a] text-white rounded-full px-6 sm:px-10 py-3 text-sm font-semibold hover:bg-black transition-colors">
+          <button
+            onClick={() => addToCart(product, qty)}
+            className="bg-[#1a1a1a] text-white rounded-full px-6 sm:px-10 py-3 text-sm font-semibold hover:bg-black transition-colors"
+          >
             Add to cart
           </button>
         </div>

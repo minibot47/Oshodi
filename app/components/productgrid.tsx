@@ -3,19 +3,8 @@
 import Link from "next/link";
 import { useCart } from "../components/cartcontext";
 
-const products = [
-  { id: 1, name: "Denim Jacket",      originalPrice: "65.00 $", salePrice: "55.00 $", onSale: true,  category: "Jackets", tag: "SALE", sku: "WOO-001", desc: "Effortlessly cool and endlessly versatile, our Denim Jacket is a wardrobe staple that never goes out of style. Crafted from premium denim, this jacket combines comfort with a touch of rugged charm.", img: "/images/denimjacket.webp" },
-  { id: 2, name: "Dotted Dress",       originalPrice: null,       salePrice: "20.00 $", onSale: false, category: "Dresses", tag: null,    sku: "WOO-002", desc: "A playful dotted dress that brings elegance to every occasion. Light, breathable fabric with a flattering silhouette you'll love.", img: "/images/dotted.webp" },
-  { id: 3, name: "Furry Jacket",       originalPrice: null,       salePrice: "15.00 $", onSale: false, category: "Jackets", tag: null,    sku: "WOO-003", desc: "Stay cozy and stylish with our plush furry jacket. Perfect for cooler days when you want warmth without sacrificing style.", img: "/images/furryjacket.webp" },
-  { id: 4, name: "Leather Jacket",        originalPrice: "80.00 $", salePrice: "60.00 $", onSale: true,  category: "Jackets", tag: "SALE", sku: "WOO-004", desc: "Make a statement with this bold pink blazer. Tailored to perfection, it pairs beautifully with both casual and formal outfits.", img: "/images/leatherjacket.webp" },
-  { id: 5, name: "Long Jacket",        originalPrice: "50.00 $", salePrice: "38.00 $", onSale: true,  category: "Jackets", tag: "SALE", sku: "WOO-005", desc: "A long-line jacket that adds instant polish to any look. Versatile enough to dress up or down, season after season.", img: "/images/longjacket.webp" },
-  { id: 6, name: "Long Neck Blouse",   originalPrice: null,       salePrice: "25.00 $", onSale: false, category: "Tops",    tag: null,    sku: "WOO-006", desc: "A clean white turtleneck that's a wardrobe essential. Soft, stretchy fabric that keeps you comfortable all day long.", img: "/images/long.webp" },
-  { id: 7, name: "Long Neck Sweater",       originalPrice: null,       salePrice: "30.00 $", onSale: false, category: "Tops", tag: null,    sku: "WOO-007", desc: "Breezy and bright, this summer dress is made for warm days and good vibes. Lightweight fabric with a flattering cut.", img: "/images/longnecksweater.webp" },
-  { id: 8, name: "Manly Coat",      originalPrice: null,       salePrice: "22.00 $", onSale: false, category: "Jackets",    tag: null,    sku: "WOO-008", desc: "An everyday casual blouse that goes with everything. Soft fabric, relaxed fit — effortlessly chic.", img: "/images/manlycoat.webp" },
-  { id: 9, name: "Polka Dots Dress",        originalPrice: "95.00 $", salePrice: "75.00 $", onSale: true,  category: "Dresses",   tag: "SALE", sku: "WOO-009", desc: "A timeless trench coat that never goes out of fashion. Structured, sophisticated, and built to last through every season.", img: "/images/polka.webp" },
-];
+import { products } from "./products";
 
-// Export products so the detail page can use the same data
 export { products };
 
 export default function ProductGrid() {

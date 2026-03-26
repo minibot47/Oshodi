@@ -5,6 +5,12 @@ import Nav from "../components/nav";
 import Footer from "../components/footer";
 import { useCart } from "../components/cartcontext";
 
+const parseNaira = (price: string) =>
+  parseFloat(price.replace("₦", "").replace(/,/g, "").trim()) || 0;
+
+const formatNaira = (amount: number) =>
+  `₦${amount.toLocaleString("en-NG")}`;
+
 export default function CartPage() {
   const { items, removeFromCart, total } = useCart();
 
@@ -45,17 +51,15 @@ export default function CartPage() {
           <div className="flex flex-col gap-6">
             {/* Desktop table */}
             <div className="hidden sm:block">
-              {/* Table header */}
-              <div className="grid  mb-3 grid-cols-[2fr_1fr_1fr_1fr] gap-4 border-b border-gray-200 pb-3 text-sm font-semibold text-gray-700 uppercase tracking-wide">
+              <div className="grid mb-3 grid-cols-[2fr_1fr_1fr_1fr] gap-4 border-b border-gray-200 pb-3 text-sm font-semibold text-gray-700 uppercase tracking-wide">
                 <span>Product</span>
                 <span>Price</span>
                 <span>Quantity</span>
                 <span>Subtotal</span>
               </div>
 
-              {/* Items */}
               {items.map((item) => {
-                const price = parseFloat(item.salePrice.replace(",", ".").replace(" $", ""));
+                const price = parseNaira(item.salePrice);
                 return (
                   <div
                     key={item.id}
@@ -79,7 +83,7 @@ export default function CartPage() {
                     <span className="text-sm text-gray-600">{item.salePrice}</span>
                     <span className="text-sm text-gray-600">{item.qty}</span>
                     <span className="text-sm font-semibold text-gray-800">
-                      {(price * item.qty).toFixed(2).replace(".", ",")} $
+                      {formatNaira(price * item.qty)}
                     </span>
                   </div>
                 );
@@ -89,7 +93,7 @@ export default function CartPage() {
             {/* Mobile stacked cards */}
             <div className="sm:hidden flex flex-col gap-4">
               {items.map((item) => {
-                const price = parseFloat(item.salePrice.replace(",", ".").replace(" $", ""));
+                const price = parseNaira(item.salePrice);
                 const subtotal = price * item.qty;
                 return (
                   <div
@@ -122,7 +126,7 @@ export default function CartPage() {
                       </div>
                       <div className="flex justify-between text-sm font-semibold text-gray-900 border-t border-gray-100 pt-2">
                         <span>Subtotal</span>
-                        <span>{subtotal.toFixed(2).replace(".", ",")} $</span>
+                        <span>{formatNaira(subtotal)}</span>
                       </div>
                     </div>
                   </div>
@@ -136,11 +140,11 @@ export default function CartPage() {
                 <h3 className="text-base font-bold text-gray-900">Cart totals</h3>
                 <div className="flex justify-between text-sm text-gray-600 border-b border-gray-100 pb-3">
                   <span>Subtotal</span>
-                  <span>{total.toFixed(2).replace(".", ",")} $</span>
+                  <span>{formatNaira(total)}</span>
                 </div>
                 <div className="flex justify-between text-sm font-semibold text-gray-900">
                   <span>Total</span>
-                  <span>{total.toFixed(2).replace(".", ",")} $</span>
+                  <span>{formatNaira(total)}</span>
                 </div>
                 <Link
                   href="/checkout"

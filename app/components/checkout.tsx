@@ -6,6 +6,11 @@ import { useRouter } from "next/navigation";
 import { useCart } from "../components/cartcontext";
 import FlutterwaveButton from "./flutterwavebutton";
 
+const parseNaira = (price: string) =>
+  parseFloat(price.replace("₦", "").replace(/,/g, "").trim()) || 0;
+
+const formatNaira = (amount: number) =>
+  `₦${amount.toLocaleString("en-NG")}`;
 
 type PaymentOptionProps = {
   id: string;
@@ -82,7 +87,7 @@ export default function CheckoutPage() {
 
         <div className="flex flex-col lg:flex-row gap-16 items-start mb-32">
 
-          {/* Left — Billing details (unchanged) */}
+          {/* Left — Billing details */}
           <div className="w-full lg:flex-1 flex flex-col gap-5">
             <h2 className="text-xl font-bold text-gray-900">Billing details</h2>
             <div className="flex flex-col gap-4">
@@ -119,13 +124,19 @@ export default function CheckoutPage() {
               <input type="text" className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm outline-none focus:border-gray-400" value={form.town} onChange={(e) => setForm((f) => ({ ...f, town: e.target.value }))} />
             </div>
             <div className="flex flex-col gap-1">
-              <label className="text-sm text-gray-600">County <span className="text-red-500">*</span></label>
+              <label className="text-sm text-gray-600">State <span className="text-red-500">*</span></label>
               <select className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm outline-none focus:border-gray-400 bg-white" value={form.county} onChange={(e) => setForm((f) => ({ ...f, county: e.target.value }))}>
-                <option value="">Select a county</option>
+                <option value="">Select a state</option>
                 <option value="Lagos">Lagos</option>
-                <option value="Abuja">Abuja</option>
+                <option value="Abuja">Abuja (FCT)</option>
                 <option value="Oyo">Oyo</option>
                 <option value="Rivers">Rivers</option>
+                <option value="Kano">Kano</option>
+                <option value="Anambra">Anambra</option>
+                <option value="Delta">Delta</option>
+                <option value="Enugu">Enugu</option>
+                <option value="Kaduna">Kaduna</option>
+                <option value="Ogun">Ogun</option>
               </select>
             </div>
             <div className="flex flex-col gap-1">
@@ -134,7 +145,7 @@ export default function CheckoutPage() {
             </div>
             <div className="flex flex-col gap-1">
               <label className="text-sm text-gray-600">Phone <span className="text-red-500">*</span></label>
-              <input type="tel" className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm outline-none focus:border-gray-400" value={form.phone} onChange={(e) => setForm((f) => ({ ...f, phone: e.target.value }))} />
+              <input type="tel" placeholder="+234" className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm outline-none focus:border-gray-400" value={form.phone} onChange={(e) => setForm((f) => ({ ...f, phone: e.target.value }))} />
             </div>
             <div className="flex flex-col gap-1">
               <label className="text-sm text-gray-600">Email address <span className="text-red-500">*</span></label>
@@ -159,24 +170,24 @@ export default function CheckoutPage() {
                 <p className="text-sm text-gray-400 py-2">No items in cart.</p>
               ) : (
                 items.map((item) => {
-                  const price = parseFloat(item.salePrice.replace(",", ".").replace(" $", ""));
+                  const price = parseNaira(item.salePrice);
                   return (
                     <div key={item.id} className="flex justify-between text-sm text-gray-600 border-b border-gray-100 pb-2">
                       <span>{item.name} <span className="font-semibold text-gray-800">× {item.qty}</span></span>
-                      <span>{(price * item.qty).toFixed(2).replace(".", ",")} $</span>
+                      <span>{formatNaira(price * item.qty)}</span>
                     </div>
                   );
                 })
               )}
               <div className="flex justify-between text-sm font-semibold text-gray-700 border-b border-gray-200 pb-3 pt-1">
-                <span>Subtotal</span><span>{total.toFixed(2).replace(".", ",")} $</span>
+                <span>Subtotal</span><span>{formatNaira(total)}</span>
               </div>
               <div className="flex justify-between text-sm text-gray-700 border-b border-gray-200 pb-3">
-                <span className="font-semibold">Shipment 1</span><span className="text-gray-400">Free shipping</span>
+                <span className="font-semibold">Shipping</span><span className="text-gray-400">Free shipping</span>
               </div>
               <div className="flex justify-between font-bold text-gray-900 pt-1">
                 <span className="text-base">Total</span>
-                <span className="text-xl">{total.toFixed(2).replace(".", ",")} $</span>
+                <span className="text-xl">{formatNaira(total)}</span>
               </div>
             </div>
 
@@ -196,7 +207,6 @@ export default function CheckoutPage() {
                 onSelect={setPaymentMethod}
               />
 
-              {/* Show Flutterwave button or plain button based on payment method */}
               {paymentMethod === "flutterwave" ? (
                 canPlaceOrder ? (
                   <FlutterwaveButton
@@ -218,7 +228,6 @@ export default function CheckoutPage() {
                   </button>
                 )
               ) : (
-                // Cash on delivery
                 <button
                   type="button"
                   disabled={!canPlaceOrder}

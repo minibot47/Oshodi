@@ -20,7 +20,7 @@ type CartContextValue = {
   items: CartItem[];
   addToCart: (product: Product, qty?: number) => void;
   removeFromCart: (id: number) => void;
-  clearCart: () => void; // ← added
+  clearCart: () => void;
   open: boolean;
   setOpen: Dispatch<SetStateAction<boolean>>;
   total: number;
@@ -45,11 +45,14 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   const removeFromCart = (id: number) => setItems((prev) => prev.filter((i) => i.id !== id));
 
-  const clearCart = () => setItems([]); 
+  const clearCart = () => setItems([]);
 
   const total = items.reduce((sum, i) => {
-    const price = parseFloat(i.salePrice.replace(",", ".").replace(" $", ""));
-    return sum + price * i.qty;
+    // Handles naira prices like "₦849,000"
+    const price = parseFloat(
+      i.salePrice.replace("₦", "").replace(/,/g, "").trim()
+    );
+    return sum + (Number.isFinite(price) ? price : 0) * i.qty;
   }, 0);
 
   return (

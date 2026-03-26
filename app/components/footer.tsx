@@ -7,9 +7,9 @@ export default function Footer(){
                 <div className="w-full sm:w-[25%] py-3 flex flex-col gap-3 ">
                     <Link href="/" className="flex items-end gap-1">
                         <span className="text-orange-500 text-lg sm:text-2xl font-bold mb-1">✳</span>
-                        <h2 className="font-medium text-2xl sm:text-4xl">vault</h2>
+                        <h2 className="font-medium text-2xl sm:text-4xl">Oshodi</h2>
                     </Link>
-                    <h3 className="text-sm">Make your clothing style cooler and more modern, only here.</h3>
+                    <h3 className="text-sm">Your trusted destination for tech and home appliances, delivered to your door.</h3>
                 </div>
                 <div className="w-full sm:w-[18%] p-5 flex flex-col gap-2">
                     <h2 className="text-xl sm:text-xl mb-3 font-medium">Get Help</h2>
@@ -19,7 +19,7 @@ export default function Footer(){
                     <Link href="" className="text-sm">Contact Us</Link>
                 </div>
                 <div className="w-full sm:w-[18%] p-5 flex flex-col gap-2">
-                    <h2 className="text-xl sm:text-xl mb-3 font-medium">About Vault</h2>
+                    <h2 className="text-xl sm:text-xl mb-3 font-medium">About Oshodi</h2>
                     <Link href="" className="text-sm">News</Link>
                     <Link href="" className="text-sm">Careers</Link>
                     <Link href="" className="text-sm">Investors</Link>
@@ -34,15 +34,14 @@ export default function Footer(){
                 </div>
                 <div className="w-full sm:w-[20%] p-5 flex flex-col gap-2">
                     <h2 className="text-xl sm:text-xl mb-3 font-medium">Contact</h2>
-                    <Link href="" className="text-sm">Helo@vault.com</Link>
-                    <Link href="" className="text-sm">2020 Massachusetts Ave NW, Washington, DC 20036</Link>
-
+                    <Link href="" className="text-sm">hello@oshodi.ng</Link>
+                    <Link href="" className="text-sm">Lagos, Nigeria</Link>
                 </div>
             </div>
-            <div className="border-t-[0.1px] border-gray-100 flex items-center justify-between py-3 px-3 ">
-                <div className="w-full sm:w-[85%]  m-auto flex flex-col sm:flex-row gap-3 sm:items-center justify-between">
+            <div className="border-t-[0.1px] border-gray-100 flex items-center justify-between py-3 ">
+                <div className="w-full   m-auto flex flex-col sm:flex-row gap-3 sm:items-center justify-between">
                     <div className="w-fit">
-                        <h1>© 2026 Vault Theme by Oshodi. All rights reserved.</h1>
+                        <h1>© 2026 Oshodi. All rights reserved.</h1>
                     </div>
                     <div className="flex gap-3  font-light">
                         <Link href="/" className="text-sm">Customer Service</Link>

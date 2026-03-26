@@ -4,9 +4,12 @@ import Link from "next/link";
 import { useCart } from "../components/cartcontext";
 
 const collections = [
-  { id: 1, name: "Summer Wear", desc: "Men & Women summer collection.", img: "/images/collection1.webp", href: "/shop?category=summer" },
-  { id: 2, name: "Jackets",     desc: "Spring to Autumn.",             img: "/images/collection2.webp", href: "/shop?category=jackets" },
-  { id: 3, name: "Sweaters",    desc: "Keeping you warm all day.",      img: "/images/collection3.webp", href: "/shop?category=sweaters" },
+  { id: 1, name: "Laptops",          desc: "MacBooks, Dell, HP & more.",      img: "/images/macbook1.jpg",   href: "/shop?category=Laptops" },
+  { id: 2, name: "Smartphones",      desc: "iPhone, Samsung & top Android.",  img: "/images/iphone16.jpg",   href: "/shop?category=Smartphones" },
+  { id: 3, name: "Home Appliances",  desc: "Smart devices for every room.",   img: "/images/appliances.jpg", href: "/shop?category=Home Appliances" },
+  { id: 4, name: "TVs",              desc: "4K, OLED & Smart TVs.",           img: "/images/tv.jpg",         href: "/shop?category=TVs" },
+  { id: 5, name: "Audio",            desc: "Headphones, speakers & more.",    img: "/images/jblspeaker.jpg", href: "/shop?category=Audio" },
+  { id: 6, name: "Cameras",          desc: "Capture every moment in HD.",     img: "/images/sonycamera.jpg", href: "/shop?category=Cameras" },
 ];
 
 export default function Nav() {
@@ -17,7 +20,7 @@ export default function Nav() {
   const [mobileCollectionsOpen, setMobileCollectionsOpen] = useState(false);
 
   const [visible, setVisible] = useState(true);
-  const [scrolled, setScrolled] = useState(false); // true when NOT at the very top
+  const [scrolled, setScrolled] = useState(false);
   const lastScrollY = useRef(0);
 
   useEffect(() => {
@@ -25,17 +28,13 @@ export default function Nav() {
       const currentY = window.scrollY;
       const atBottom = window.innerHeight + currentY >= document.body.scrollHeight - 10;
 
-      // Show border when scrolled away from top
       setScrolled(currentY > 10);
 
-      // Always show at top or bottom of page
       if (currentY < 10 || atBottom) {
         setVisible(true);
       } else if (currentY < lastScrollY.current) {
-        // Scrolling up → show
         setVisible(true);
       } else {
-        // Scrolling down → hide
         setVisible(false);
         setCollectionsOpen(false);
         setMobileMenuOpen(false);
@@ -59,7 +58,7 @@ export default function Nav() {
         <nav className="w-full h-[80px] text-black flex justify-between items-center max-w-[1440px] mx-auto px-3 sm:px-6 lg:px-10">
           <Link href="/" className="flex items-end gap-1">
             <span className="text-orange-500 text-lg sm:text-2xl font-bold mb-1">✳</span>
-            <h2 className="font-medium text-2xl sm:text-3xl">vault</h2>
+            <h2 className="font-medium text-2xl sm:text-3xl">Oshodi</h2>
           </Link>
 
           <div className="flex items-center gap-12">

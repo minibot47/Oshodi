@@ -2,12 +2,12 @@
 import { useState, useEffect } from "react";
 
 const testimonials = [
-  { id: 1, name: "John Caine",  text: "This website is the perfect place to find the latest fashion trends. I always come back here for the latest styles." },
-  { id: 2, name: "Danny Cole",  text: "I am blown away by the incredible selection and quality of products offered by this online store." },
-  { id: 3, name: "Jamie Jones", text: "The website is user-friendly, the shipping is prompt, and the customer service team is exceptional." },
-  { id: 4, name: "Adam Smith",  text: "I am very pleased with the quality I buy from this website. They always exceed expectations!" },
-  { id: 5, name: "Sara Mensah", text: "From the browsing experience to checkout, everything just works. Best fashion store I've used online." },
-  { id: 6, name: "Tunde Bello", text: "I found my favourite jacket right here. The collection is curated with real taste — I keep coming back." },
+  { id: 1, name: "Chukwuemeka Obi",  text: "Oshodi is my go-to for all things tech. The prices are fair and my laptop arrived faster than expected — properly packaged too." },
+  { id: 2, name: "Funmilayo Adeyemi",  text: "I bought a Samsung TV and the quality is exactly as described. Delivery was smooth and the team was so helpful throughout." },
+  { id: 3, name: "Tunde Fashola", text: "The website is easy to navigate, checkout was stress-free, and my order came on time. Oshodi has earned my trust." },
+  { id: 4, name: "Ngozi Okonkwo",  text: "I was skeptical about buying appliances online but Oshodi changed that. Everything was genuine and well worth the price." },
+  { id: 5, name: "Babatunde Lawal", text: "Best tech store I've used in Nigeria. Wide selection, real warranties, and customer service that actually picks up the phone." },
+  { id: 6, name: "Amaka Eze", text: "Got my iPhone and a Xiaomi air purifier in one order. Both arrived in perfect condition. I keep recommending Oshodi to everyone." },
 ];
 
 const TOTAL = testimonials.length;
@@ -19,7 +19,6 @@ export default function Testimonials() {
   const [animating, setAnimating] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
-  // Detect screen size
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 768);
     check();
@@ -27,8 +26,6 @@ export default function Testimonials() {
     return () => window.removeEventListener("resize", check);
   }, []);
 
-  // On mobile: 1 card visible, so max start = TOTAL - 1
-  // On desktop: 2 cards visible, so max start = TOTAL - 2
   const cardWidth = isMobile ? 100 : 50;
   const maxStart = isMobile ? TOTAL - 1 : TOTAL - 2;
 
@@ -81,10 +78,10 @@ export default function Testimonials() {
           {testimonials.map((t) => (
             <div
               key={t.id}
-              className="flex-shrink-0 px-2 box-border"
-              style={{ width: `${cardWidth}%` }} // 100% on mobile, 50% on desktop
+              className="flex-shrink-0 px-2 box-border h-full"
+              style={{ width: `${cardWidth}%` }}
             >
-              <div className="bg-[#1e2330] rounded-2xl p-9 flex flex-col gap-3">
+              <div className="bg-[#1e2330] rounded-2xl p-9 flex flex-col gap-3 h-[280px]">
                 <img src="/icons/apostrophe.webp" alt="Apostrophe " className="w-10 h-10"/>
                 <h3 className="text-white font-bold text-xl">{t.name}</h3>
                 <p className="text-[#a0a8b8] text-lg leading-relaxed">{t.text}</p>
@@ -93,18 +90,6 @@ export default function Testimonials() {
           ))}
         </div>
       </div>
-
-      {/* <div className=" hidden sm:flex flex-col gap-2 flex-shrink-0">
-        {testimonials.slice(0, maxStart + 1).map((_, i) => (
-          <button
-            key={i}
-            onClick={() => !animating && setStart(i)}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ${
-              i === start ? "bg-orange-500 scale-125" : "bg-gray-300"
-            }`}
-          />
-        ))}
-      </div> */}
 
       <button
         onClick={() => slide("next")}

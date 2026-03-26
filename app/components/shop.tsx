@@ -11,16 +11,13 @@ import { useCart } from "../components/cartcontext";
 
 // Map URL param → display name + hero image
 const categoryMeta = {
-  summer:   { label: "Summer Wear",  img: "/images/collection1.webp" },
-  jackets:  { label: "Jackets",      img: "/images/collection2.webp" },
-  sweaters: { label: "Sweaters",     img: "/images/collection3.webp" },
-};
-
-// Map category param → product category string in your products array
-const categoryFilter = {
-  summer:   "Dresses",
-  jackets:  "Jackets",
-  sweaters: "Tops",
+  Laptops:           { label: "Laptops",          img: "/images/macbook1.jpg" },
+  Smartphones:       { label: "Smartphones",       img: "/images/iphone16.jpg" },
+  "Home Appliances": { label: "Home Appliances",   img: "/images/appliances.jpg" },
+  TVs:               { label: "TVs",               img: "/images/tv.jpg" },
+  Audio:             { label: "Audio",             img: "/images/jblspeaker.jpg" },
+  Cameras:           { label: "Cameras",           img: "/images/sonycamera.jpg" },
+  "Office Equipment":{ label: "Office Equipment",  img: "/images/lexus.jpg" },
 };
 
 type CategoryKey = keyof typeof categoryMeta;
@@ -28,13 +25,12 @@ type CategoryKey = keyof typeof categoryMeta;
 export default function ShopPage() {
   const searchParams = useSearchParams();
   const { addToCart } = useCart();
-  const cat = searchParams.get("category") as CategoryKey | null; // e.g. "jackets"
+  const cat = searchParams.get("category") as CategoryKey | null;
   const meta = cat ? categoryMeta[cat] : null;
-  const filterKey = cat ? categoryFilter[cat] : null;
 
   // If a category is active, filter — otherwise show all
-  const filtered = filterKey
-    ? products.filter((p) => p.category === filterKey)
+  const filtered = cat
+    ? products.filter((p) => p.category === cat)
     : products;
 
   type SortKey = "default" | "price-asc" | "price-desc" | "name-asc" | "sale-first";
@@ -44,8 +40,11 @@ export default function ShopPage() {
     const list = [...filtered];
 
     const parseSalePrice = (p: (typeof products)[number]) => {
-      // Example input: "55.00 $"
-      const raw = String(p.salePrice ?? "").replace(",", ".").replace(" $", "").trim();
+      // Handles naira prices like "₦849,000"
+      const raw = String(p.salePrice ?? "")
+        .replace("₦", "")
+        .replace(/,/g, "")
+        .trim();
       const n = parseFloat(raw);
       return Number.isFinite(n) ? n : 0;
     };
@@ -70,7 +69,6 @@ export default function ShopPage() {
         break;
       case "default":
       default:
-        // Keep products order
         break;
     }
 
@@ -79,11 +77,11 @@ export default function ShopPage() {
 
   return (
     <div className="min-h-screen flex flex-col items-center gap-3 pb-32 m-auto">
-      {/* Hero — always the same image */}
+      {/* Hero */}
       <div className="relative w-full h-[30vh] flex flex-col gap-3 items-center justify-center overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: 'url("/images/defaultstore.webp")' }}
+          style={{ backgroundImage: `url("${meta ? meta.img : "/images/dell.jpg"}")` }}
           aria-hidden="true"
         />
         <div className="absolute inset-0 bg-black/40" aria-hidden="true" />
@@ -104,16 +102,13 @@ export default function ShopPage() {
         </div>
       </div>
 
-      {/* Product grid — filtered */}
+      {/* Product grid */}
       <div className="min-h-screen mt-20 flex flex-col items-center px-4 sm:px-6 lg:px-12 gap-10 sm:gap-20 m-auto max-w-[1440px] w-full">
-        {/* Showing X results */}
         <div className="w-full flex flex-col sm:flex-row items-center sm:items-center justify-between mt-8 gap-3 mb-10">
           <p className="text-sm text-black">Showing all {displayed.length} results</p>
 
           <div className="w-full sm:w-auto">
-            <label className="sr-only" htmlFor="sort">
-              Sort products
-            </label>
+            <label className="sr-only" htmlFor="sort">Sort products</label>
             <select
               id="sort"
               value={sortKey}
@@ -129,14 +124,18 @@ export default function ShopPage() {
           </div>
         </div>
 
-        {/* Reuse the same card layout from ProductGrid but with filtered data */}
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-7 gap-y-10 w-full -mt-14 mb-20">
           {displayed.map((product) => (
             <Link key={product.id} href={`/shop/${product.id}`} className="group cursor-pointer">
-              <div className="relative overflow-hidden  bg-gray-100 h-[450px] w-full">
+              <div className="relative overflow-hidden bg-gray-100 h-[450px] w-full">
                 {product.onSale && (
                   <div className="absolute top-3 left-3 z-10 bg-[#1a1a1a] text-white text-xs font-semibold px-3 py-1 rounded-sm tracking-wider">
                     SALE!
+                  </div>
+                )}
+                {product.tag === "NEW" && !product.onSale && (
+                  <div className="absolute top-3 left-3 z-10 bg-orange-500 text-white text-xs font-semibold px-3 py-1 rounded-sm tracking-wider">
+                    NEW
                   </div>
                 )}
                 <img
@@ -147,7 +146,8 @@ export default function ShopPage() {
               </div>
               <div className="mt-3 px-1">
                 <h3 className="text-xl font-medium text-gray-900 mb-1">{product.name}</h3>
-                {/* Mobile: stacked price + button (no hover overlay) */}
+
+                {/* Mobile */}
                 <div className="sm:hidden">
                   <div className="flex items-center gap-2">
                     {product.onSale && (
@@ -172,7 +172,7 @@ export default function ShopPage() {
                   </div>
                 </div>
 
-                {/* Desktop/tablet: keep hover slide-in behavior */}
+                {/* Desktop */}
                 <div className="hidden sm:block relative h-7 overflow-hidden">
                   <div className="absolute inset-0 flex items-center gap-2 transition-all duration-500 ease-in-out sm:group-hover:-translate-y-full sm:group-hover:opacity-0">
                     {product.onSale && (
