@@ -14,7 +14,7 @@ export const products = [
     },
     {
       id: 2,
-      name: "Home Appliances Bundle",
+      name: "Washing Machine",
       originalPrice: null,
       salePrice: "₦280,000",
       onSale: false,
@@ -53,7 +53,7 @@ export const products = [
     },
     {
       id: 5,
-      name: "Home Appliances Set",
+      name: "Ironing Set",
       originalPrice: "₦195,000",
       salePrice: "₦155,000",
       onSale: true,
