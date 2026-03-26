@@ -20,8 +20,8 @@ export const metadata: Metadata = {
   description: "Shop the latest fashion trends at Oshodi. Free shipping on all orders. Discover curated collections of clothing, jackets, sweaters and more.",
   icons: "/icons/icon.png",
   openGraph: {
-    title: "Oshodi | Style Finds You Here",
-    description: "Shop the latest fashion trends at Oshodi. Free shipping on all orders.",
+    title: "Oshodi | Tech at Your Fingertips",
+    description: "Discover the best deals on phones, laptops, gadgets and accessories. Fast delivery. Shop now at Oshodi.",
     url: "https://oshodimvp.vercel.app/",
     siteName: "Oshodi",
     images: [
@@ -34,8 +34,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Oshodi | Style Finds You Here",
-    description: "Shop the latest fashion trends at Oshodi. Free shipping on all orders.",
+    title: "Oshodi | Tech at Your Fingertips",
+    description: "Discover the best deals on phones, laptops, gadgets and accessories. Fast delivery. Shop now at Oshodi.",
     images: ["https://oshodimvp.vercel.app/images/meta.png"],
   },
 };
