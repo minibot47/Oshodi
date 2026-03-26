@@ -122,12 +122,12 @@ export const products = [
       originalPrice: "₦210,000",
       salePrice: "₦178,000",
       onSale: true,
-      category: "Office Equipment",
+      category: "Home Appliances",
       tag: "SALE",
       sku: "OSH-010",
       desc: "Print faster, smarter, and more efficiently with the Lexmark CS531dw. This colour laser printer is built for busy offices that need reliable, high-quality output every day.",
       additionalInfo: "Type: Colour Laser | Speed: 26ppm | Connectivity: Wi-Fi, USB, Ethernet | Duplex: Yes | Monthly Duty Cycle: Up to 75,000 pages",
-      img: "/images/lexus.jpg"
+      img: "/images/lexmark.jpg"
     },
     {
       id: 11,
