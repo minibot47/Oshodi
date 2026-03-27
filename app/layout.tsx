@@ -20,6 +20,7 @@ export const metadata: Metadata = {
   description: "Shop the latest fashion trends at Oshodi. Free shipping on all orders. Discover curated collections of clothing, jackets, sweaters and more.",
   icons: "/icons/icon.png",
   openGraph: {
+    type: "website",
     title: "OshodiLive.com Redefining Online Shopping with Live Market Experiences.",
     description: "Discover the best deals on phones, laptops, gadgets and accessories. Fast delivery. Shop now at Oshodi.",
     url: "https://oshodimvp.vercel.app/",
