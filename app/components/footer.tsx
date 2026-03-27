@@ -33,7 +33,7 @@ export default function Footer(){
                 </div>
                 <div className="w-full sm:w-[20%] p-5 flex flex-col gap-2">
                     <h2 className="text-xl sm:text-xl mb-3 font-medium">Contact</h2>
-                    <Link href="" className="text-sm">hello@oshodi.ng</Link>
+                    <Link href="" className="text-sm">oshodilive.com</Link>
                     <Link href="" className="text-sm">Lagos, Nigeria</Link>
                 </div>
             </div>

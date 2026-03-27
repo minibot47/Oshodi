@@ -194,4 +194,43 @@ export const products = [
       additionalInfo: "Screen Size: 65 inches | Panel: OLED | Resolution: 4K UHD | HDR: Dolby Vision IQ, HDR10 | Smart OS: WebOS 23 | HDMI Ports: 4 | Wi-Fi: Yes",
       img: "/images/tv2.jpg"
     },
+    {
+      id: 16,
+      name: "Apple iPhone 17 Pro Max",
+      originalPrice: null,
+      salePrice: "₦1,150,000",
+      onSale: false,
+      category: "Smartphones",
+      tag: "NEW",
+      sku: "OSH-007",
+      desc: "The all-new iPhone 17 pushes the boundaries of what a smartphone can do. Featuring Apple Intelligence, an upgraded camera array, and the fastest chip ever in an iPhone.",
+      additionalInfo: "Storage: 256GB | Display: 6.3-inch ProMotion OLED | Camera: 48MP Main + 12MP Ultra Wide | Battery: 4,000mAh | OS: iOS 18",
+      img: "/images/iphone17.jpg"
+    },
+    {
+      id: 17,
+      name: "Lexus LX 570 2020",
+      originalPrice: null,
+      salePrice: "₦90,000,000",
+      onSale: false,
+      category: "Cars",
+      tag: null,
+      sku: "OSH-004",
+      desc: "Experience unmatched luxury and off-road capability with the 2020 Lexus LX 570. Built for those who demand the best, this full-size SUV combines a powerful V8 engine with a refined interior and cutting-edge technology.",
+      additionalInfo: "Engine: 5.7L V8 | Horsepower: 383 HP | Transmission: 8-Speed Automatic | Drive: Full-Time 4WD | Seats: 7 | Year: 2020 | Color: Pearl White",
+      img: "/images/lexus.jpg"
+    },
+    {
+      id: 18,
+      name: "MacBook Pro M4 Pro 2025",
+      originalPrice: "₦4,370,000",
+      salePrice: "₦3,600,000",
+      onSale: true,
+      category: "Laptops",
+      tag: "SALE",
+      sku: "OSH-002",
+      desc: "The most powerful MacBook Pro ever built. Powered by the Apple M4 Pro chip, it delivers groundbreaking performance for professionals. Whether you're editing 4K video, running complex models, or multitasking across demanding apps — this machine handles it all effortlessly.",
+      additionalInfo: "Chip: Apple M4 Pro 14-Core | RAM: 24GB Unified Memory | Storage: 1TB SSD | Display: 16.2-inch Liquid Retina XDR | Battery: Up to 22 hours | OS: macOS Sequoia | Color: Space Black",
+      img: "/images/macbookpro2025.jpg"
+    }
   ];
