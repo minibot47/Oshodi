@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     siteName: "Oshodi",
     images: [
       {
-        url: "/images/Meta.png",
+        url: "/images/Meta.jpg",
         width: 1200,
         height: 630,
       },
