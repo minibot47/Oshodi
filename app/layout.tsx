@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     siteName: "Oshodi",
     images: [
       {
-        url: "https://oshodimvp.vercel.app/images/Meta.png",
+        url: "/images/Meta.png",
         width: 1200,
         height: 630,
       },
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Oshodi | Tech at Your Fingertips",
     description: "Discover the best deals on phones, laptops, gadgets and accessories. Fast delivery. Shop now at Oshodi.",
-    images: ["https://oshodimvp.vercel.app/images/Meta.png"],
+    images: ["https://oshodimvp.vercel.app/images/Meta.jpg"],
   },
 };
 
