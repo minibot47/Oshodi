@@ -28,7 +28,7 @@ export default function Home() {
           muted
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
-          src="https://www.pexels.com/download/video/7680440/"
+          src="/videos/maindemo.mp4"
         />
 
         <div className="absolute inset-0 bg-black/20" aria-hidden="true" />
