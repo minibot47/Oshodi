@@ -159,9 +159,12 @@ export default function Home() {
               <div className="absolute inset-0 bg-black/20" aria-hidden="true" />
               <h2 className="relative z-10 text-3xl text-white">Smartphones</h2>
               <h3 className="relative z-10">Latest Android & iPhone models.</h3>
-              <h2 className="relative z-10 flex gap-3 items-center bg-black text-white px-7 py-3 rounded-full mt-4">
-                See Product →
-              </h2>
+              <Link href='/shop?category=Smartphones' className="cursor-pointer">
+                <h2 className="relative z-10 flex gap-3 items-center bg-black text-white px-7 py-3 rounded-full mt-4">
+                  See Product →
+                </h2>
+              </Link>
+
           </div>
           <div className="w-full lg:w-[26%] rounded-[16px] flex flex-col gap-3">
             <div className="w-full h-[60%] rounded-[16px] overflow-hidden relative flex flex-col items-start justify-end p-7 text-white">
@@ -176,9 +179,11 @@ export default function Home() {
               <div className="absolute inset-0 bg-black/20" aria-hidden="true" />
               <h2 className="relative z-10 text-3xl text-white">Laptops</h2>
               <h3 className="relative z-10">Work, school & gaming.</h3>
-              <h2 className="relative z-10 flex gap-3 items-center bg-black text-white px-7 py-3 rounded-full mt-4">
-                See Product →
-              </h2>
+              <Link href='/shop?category=Laptops' className="cursor-pointer">
+                <h2 className="relative z-10 flex gap-3 items-center bg-black text-white px-7 py-3 rounded-full mt-4">
+                  See Product →
+                </h2>
+              </Link>
             </div>
             <div className="w-full h-[40%] bg-[#222935] rounded-[16px] flex flex-col items-start p-7 text-white justify-between gap-3 lg:gap-0">
               <h2 className="py-2 px-5 border-white border-[1px] text-white rounded-full">Special Offers</h2>
@@ -194,9 +199,11 @@ export default function Home() {
               <div className="absolute inset-0 bg-black/20" aria-hidden="true" />
               <h2 className="relative z-10 text-3xl text-white">Home Appliances</h2>
               <h3 className="relative z-10">Smart devices for every room.</h3>
-              <h2 className="relative z-10 flex gap-3 items-center bg-black text-white px-7 py-3 rounded-full mt-4">
-                See Product →
-              </h2>
+              <Link href='/shop?category=Home Appliances' className="cursor-pointer">
+                <h2 className="relative z-10 flex gap-3 items-center bg-black text-white px-7 py-3 rounded-full mt-4">
+                  See Product →
+                </h2>
+              </Link>
           </div>
         </div>
       </div>
