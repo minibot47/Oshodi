@@ -57,7 +57,7 @@ export default function Nav() {
       >
         <nav className="w-full h-[80px] text-black flex justify-between items-center max-w-[1440px] mx-auto px-3 sm:px-6 lg:px-10">
           <Link href="/" className="flex items-end gap-1">
-            <img src="/icons/oshodi.png" alt="LOGO" className="w-[150px] h-[30px]" />
+            <img src="/icons/oshodi.png" alt="LOGO" className="w-[140px] h-[28px]" />
           </Link>
 
           <div className="flex items-center gap-12">

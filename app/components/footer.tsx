@@ -6,7 +6,7 @@ export default function Footer(){
             <div className="w-full h-full flex flex-col  sm:flex-row">
                 <div className="w-full sm:w-[25%] py-3 flex flex-col gap-3 ">
                 <Link href="/" className="flex items-end gap-1">
-                    <img src="/icons/oshodi.png" alt="LOGO" className="w-[150px] h-[30px]" />
+                    <img src="/icons/oshodi.png" alt="LOGO" className="w-[140px] h-[28px]" />
                 </Link>
                     <h3 className="text-sm w-[90%]">Your trusted destination for tech and home appliances, delivered to your door.</h3>
                 </div>
