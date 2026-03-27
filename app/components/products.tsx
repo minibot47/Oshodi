@@ -67,8 +67,8 @@ export const products = [
     {
       id: 6,
       name: "Apple iPhone 16",
-      originalPrice: null,
-      salePrice: "₦899,000",
+      originalPrice: "₦1,100,000",
+      salePrice: "₦950,000",
       onSale: false,
       category: "Smartphones",
       tag: null,
@@ -81,7 +81,7 @@ export const products = [
       id: 7,
       name: "Apple iPhone 17",
       originalPrice: null,
-      salePrice: "₦1,150,000",
+      salePrice: "₦1,500,000",
       onSale: false,
       category: "Smartphones",
       tag: "NEW",
@@ -198,14 +198,14 @@ export const products = [
       id: 16,
       name: "Apple iPhone 17 Pro Max",
       originalPrice: null,
-      salePrice: "₦1,150,000",
+      salePrice: "₦2,250,000",
       onSale: false,
       category: "Smartphones",
       tag: "NEW",
       sku: "OSH-007",
       desc: "The all-new iPhone 17 pushes the boundaries of what a smartphone can do. Featuring Apple Intelligence, an upgraded camera array, and the fastest chip ever in an iPhone.",
       additionalInfo: "Storage: 256GB | Display: 6.3-inch ProMotion OLED | Camera: 48MP Main + 12MP Ultra Wide | Battery: 4,000mAh | OS: iOS 18",
-      img: "/images/iphone17.jpg"
+      img: "/images/iPhone17pro.jpg"
     },
     {
       id: 17,

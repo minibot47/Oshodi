@@ -7,7 +7,7 @@ const products = [
       originalPrice: "₦ 2,400,000",
       salePrice: "₦ 2,250,000",
       onSale: true,
-      img: "/images/iphone17.jpg",
+      img: "/images/iPhone17pro.jpg",
     },
     {
       id: 18,

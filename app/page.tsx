@@ -7,7 +7,6 @@ import FlashSaleTimer from "./components/flashsale";
 import { useState, useRef } from "react";
 
 export default function Home() {
-  // ✅ hooks are now INSIDE the component
   const [videoOpen, setVideoOpen] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
