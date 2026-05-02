@@ -15,7 +15,7 @@ export default function Footer(){
                     <Link href="" className="text-sm">Delivery</Link>
                     <Link href="" className="text-sm">Returns</Link>
                     <Link href="" className="text-sm">Payment Options</Link>
-                    <Link href="" className="text-sm">Contact Us</Link>
+                    <Link href="/contact" className="text-sm">Contact Us</Link>
                 </div>
                 <div className="w-full sm:w-[18%] p-5 flex flex-col gap-2">
                     <h2 className="text-xl sm:text-xl mb-3 font-medium">About Oshodi</h2>
@@ -33,8 +33,9 @@ export default function Footer(){
                 </div>
                 <div className="w-full sm:w-[20%] p-5 flex flex-col gap-2">
                     <h2 className="text-xl sm:text-xl mb-3 font-medium">Contact</h2>
-                    <Link href="" className="text-sm">oshodilive.com</Link>
-                    <Link href="" className="text-sm">Lagos, Nigeria</Link>
+                    <Link href="" className="text-sm">hello@oshodilive.com</Link>
+                    <Link href="" className="text-sm">Block C, Safecourt Apartments, Ojulari Road, Ikate Elegushi, Lekki</Link>
+                    <h2>+234 (0)814 771 0837</h2>
                 </div>
             </div>
             <div className="border-t-[0.1px] border-gray-100 flex items-center justify-between py-3 ">

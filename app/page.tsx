@@ -38,7 +38,6 @@ export default function Home() {
           <h2 className="relative z-10 text-white text-4xl sm:text-5xl lg:text-7xl w-full lg:w-[850px] text-center px-2">
             The tech you deserve, the price you'll love
           </h2>
-          <h2 className="relative z-10 text-white text-4xl sm:text-5xl lg:text-6xl w-full lg:w-[700px] text-left px-2">.....Oshodi</h2>
           <Link href='/shop' className="relative z-10 bg-white py-4 px-9 rounded-full">Explore now</Link>
         </div>
 
